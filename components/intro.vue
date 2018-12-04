@@ -20,20 +20,23 @@ export default {
           translateY : -20,
           scale : 0.3,
         })
+        .add(this.animate_strok(".intro-elem .name_elem path" ))
         .add({
           targets : ".intro-elem .name_elem",
           translateY : -20,
           opacity: [
               { value: 1, easing: 'easeInOutSine' }
           ],
+          offset: '-=4000'
         })
-        .add(this.animate_strok(".intro-elem .name_elem path" ))
+      
         .add({
           targets :".intro-elem .fullstack_elem",
           translateY : -20,
           opacity: [
               { value: 1, easing: 'easeInOutSine' }
           ],
+           offset: '-=2000'
         })
         .add(this.animate_strok(".intro-elem .fullstack_elem path" ))
     },
