@@ -1,12 +1,12 @@
 <template>
   <div class="home_content">
+     <div class="home_content_right_pan"></div>
       <v-container>
           <v-layout row>
               <v-flex x6>
                   <app-intro ref="intro" @onAnimationFinish="animateHomePage" />
               </v-flex>
               <v-flex x6>
-                 <div class="home_content_right_pan"></div>
               </v-flex>
           </v-layout>
       </v-container>
@@ -48,7 +48,7 @@ export default {
 .home_content {
   position: relative;
   &_right_pan{
-    width: 50%;
+    width: 40%;
     position: absolute;
     right: -50%;
     height: 100vh;
