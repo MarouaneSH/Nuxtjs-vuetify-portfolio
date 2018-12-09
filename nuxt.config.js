@@ -28,7 +28,9 @@ module.exports = {
   ** Global CSS
   */
   css: [
-    '~/assets/style/app.styl'
+    '~/assets/style/app.styl',
+    '@fortawesome/fontawesome-svg-core/styles.css'
+
   ],
 
   /*
@@ -37,7 +39,8 @@ module.exports = {
   plugins: [
     '@/plugins/vuetify',
     '@/plugins/anime',
-    
+    '~/plugins/fontawesome.js'
+ 
   ],
 
   /*
@@ -47,6 +50,7 @@ module.exports = {
     // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios',
   ],
+
   /*
   ** Axios module configuration
   */
