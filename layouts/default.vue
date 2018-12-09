@@ -15,7 +15,7 @@
 
 <style>
  body{
-    background:#02162d;
+    background:#021C44;
     height: 100vh;
     width: 100%;
   }

@@ -30,9 +30,12 @@ export default {
           targets : ".home_content_right_pan",
           translateX: "-100%",
           delay : 200,
-          duration : 2500,
+          duration : 1500,
+           backgroundColor: ["#FF174E", "#03204C"],
+          direction: 'alternate',
+          easing: 'easeInOutSine',
           complete : function() {
-            alert("dssds");
+
           }
         })
     },
