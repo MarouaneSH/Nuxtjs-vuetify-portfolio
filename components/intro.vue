@@ -15,7 +15,10 @@
           <font-awesome-icon   :icon="['fab','github']"/>
           <font-awesome-icon  :icon="['fab','facebook']"/>
       </div>
-      <button class="btn_contact"><font-awesome-icon icon="envelope"/></button>
+      <div class="intro_container_contact">
+         <button class="btn_contact"><font-awesome-icon icon="envelope"/></button>
+         <span>CONTACT</span>
+      </div>
     </div>
 </template>
 
@@ -220,14 +223,27 @@ export default {
   }
 }
 
-.btn_contact {
+
+.intro_container_contact {
+   opacity: 0;
+    display: flex;
+    align-self: flex-start;
+    flex-direction: column;
+    span {
+      color: white;
+      font-size: 12px;
+      margin-top: 5px;
+    }
+  .btn_contact {
+      align-self: flex-start;
       background: #ff0047;
-    padding: 15px;
-    border-radius: 100%;
-    line-height: 1;
-    color: white;
-    font-size: 20px;
-    box-shadow: -11px 2px 20px rgba(255, 0, 71, 0.4), 9px 4px 6px rgba(255, 0, 71, 0.19);
+      padding: 15px;
+      border-radius: 100%;
+      line-height: 1;
+      color: white;
+      font-size: 20px;
+      box-shadow: -11px 2px 20px rgba(255, 0, 71, 0.4), 9px 4px 6px rgba(255, 0, 71, 0.19);
+  }
 }
 @keyframes polygon {
     from {transform: rotate(40deg);}

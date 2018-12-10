@@ -47,7 +47,7 @@ export default {
           }
         })
         .add({
-           targets : ".home_content_scroll",
+           targets : [".home_content_scroll", ".intro_container_contact", ".home_content_nav"],
            opacity : 1,
            easing: 'easeOutExpo',
            translateY : 0,
@@ -95,6 +95,7 @@ export default {
         }
     }
     &_nav {
+      opacity: 0;
       color: white;
       text-align: right;
       span{

@@ -2,7 +2,7 @@ import Vue from 'vue'
 import { library, config } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faGithub, faFacebook } from '@fortawesome/fontawesome-free-brands'
-import { fas, faEdit } from '@fortawesome/free-solid-svg-icons'
+import { fas, faEdit,faconta } from '@fortawesome/free-solid-svg-icons'
 
 // This is important, we are going to let Nuxt.js worry about the CSS
 config.autoAddCss = false
