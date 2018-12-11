@@ -36,6 +36,14 @@ export default {
        let _this = this;
       this.$anime
         .timeline()
+        .add({
+          targets : ".rounded_item",
+          scale : [0, 1],
+          easing: "easeOutExpo",
+          elasticity:500,
+          duration : 1500,
+          opacity : [1 , 0],
+        })
         .add(this.animate_strok(".intro-elem .hi_elem path"))
         .add({
           targets : ".intro-elem .hi_elem",
@@ -58,12 +66,11 @@ export default {
           strokeWidth: 0,
           opacity : 1,
            translateY: [-100,0],
-    easing: "easeOutExpo",
-    duration: 1400,
-    delay: function(el, i) {
-      return 30 * i;
-    }
-      
+          easing: "easeOutExpo",
+          duration: 1400,
+          delay: function(el, i) {
+            return 30 * i;
+          }
         })
         .add({
           targets :  ".intro-elem",
@@ -72,8 +79,19 @@ export default {
           easing: 'easeOutExpo',
         })
         .add({
+          targets : ".rounded_item",
+          scale : [0, 1],
+          easing: "easeOutExpo",
+          elasticity:500,
+          opacity : [1 , 0],
+          duration : 2500,
+        })
+        .add({
           targets :  ".intro-elem svg",
+          offset : '-=2600',
           translateY : 0,
+           easing: 'easeOutExpo',
+             elasticity:500,
            complete : function() {
               _this.isComplete = true;
               _this.$emit("onAnimationFinish");
@@ -222,11 +240,11 @@ export default {
     margin: 0 4px;
   }
 }
-
-
 .intro_container_contact {
-   opacity: 0;
+    opacity: 0;
     display: flex;
+    position: absolute;
+    bottom: 50px;
     align-self: flex-start;
     flex-direction: column;
     span {
@@ -258,4 +276,6 @@ export default {
     from {transform: translateY(0); opacity: 0}
     to {transform: translateY(-60px); opacity: 1}
 }
+
+
 </style>

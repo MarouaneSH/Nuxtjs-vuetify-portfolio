@@ -1,6 +1,7 @@
 <template>
   <div class="home_content">
-     <div class="home_content_right_pan"></div>
+      <div class="home_content_right_pan"></div>
+      <div class="rounded_item"></div>
       <v-container>
           <div class="home_content_scroll">
             <img src="svg/scroll.svg" alt="">
@@ -79,6 +80,19 @@ export default {
   }
 }
 
+.rounded_item {
+    position: absolute;
+    background: #ff0047;
+    height: 200%;
+    width: 88%;
+    margin: auto;
+    right: 0;
+    left: 0;
+    top: 0;
+    opacity : 0;
+    border-radius: 100%;
+    
+}
 .home_content {
     &_scroll{
         position: absolute;
