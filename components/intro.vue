@@ -90,8 +90,8 @@ export default {
           targets :  ".intro-elem svg",
           offset : '-=2600',
           translateY : 0,
-           easing: 'easeOutExpo',
-             elasticity:500,
+          easing: 'easeOutExpo',
+          elasticity:500,
            complete : function() {
               _this.isComplete = true;
               _this.$emit("onAnimationFinish");
@@ -153,6 +153,7 @@ export default {
 .intro-elem {
     display: flex;
     height: 100VH;
+        display: none;
     width: 100%;
     position: absolute;
     top: 0;
@@ -180,7 +181,7 @@ export default {
 .intro_container_polygon polygon {
   display: none;
   transform: rotate(40deg);
-
+  opacity : 0;
   animation: polygonInfinit 2s 2.2s infinite alternate ;
   animation: polygon 2s .1s forwards;
 }
@@ -264,8 +265,8 @@ export default {
   }
 }
 @keyframes polygon {
-    from {transform: rotate(40deg);}
-    to {transform: rotate(0);}
+    from {transform: rotate(40deg); opacity : 0}
+    to {transform: rotate(0); opacity : 1}
 }
 @keyframes polygonInfinit {
     from {transform: rotate(2deg);}

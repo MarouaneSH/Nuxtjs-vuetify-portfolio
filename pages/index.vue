@@ -3,10 +3,10 @@
       <div class="home_content_right_pan"></div>
       <div class="rounded_item"></div>
       <v-container>
-          <div class="home_content_scroll">
-            <img src="svg/scroll.svg" alt="">
-           <p> scroll to discover</p>
-          </div>
+          <nuxt-link to="/works" class="home_content_scroll">
+             <img src="svg/scroll.svg" alt="">
+             <p> scroll to discover</p>
+          </nuxt-link>
           <v-layout row>
               <v-flex x6>
                   <app-intro ref="intro" @onAnimationFinish="animateHomePage" />
@@ -28,7 +28,7 @@ import appIntro from '~/components/intro.vue'
 export default {
   mounted() {
     //starting intro animation
-     this.$refs.intro.animate_intro();
+     //this.$refs.intro.animate_intro();
   },
   methods : {
      animateHomePage() {
@@ -55,6 +55,19 @@ export default {
            duration: 1500,
            elasticity: 600,
             scale: [0, 1],
+        })
+         .add({
+          targets: '.intro-elem path',
+          translateY: ["1.1em", 0],
+          translateX: ["0.55em", 0],
+          translateZ: 0,
+          rotateZ: [180, 0],
+          offset: '-=1000',
+          duration: 750,
+          easing: "easeOutExpo",
+          delay: function(el, i) {
+            return 50 * i;
+          }
         })
     },
   },
@@ -98,12 +111,13 @@ export default {
         position: absolute;
         left: 0;
         right: 0;
-        opacity: 0;
+        opacity: 1;
         bottom: 40px;
         margin: auto;
         text-align: center;
         color: white;
         transform : translateY(40px);
+        text-decoration: none;
         img {
           width: 30px;
         }
