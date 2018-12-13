@@ -1,5 +1,9 @@
 <template>
   <div class="home_content">
+      <script src="/pt.min.js"></script>
+      <section id="home_canvas" class="flex height-fix">
+        <div id="pt" class="canvas"></div>
+      </section>
       <div class="home_content_right_pan"></div>
       <div class="rounded_item"></div>
       <v-container>
@@ -19,6 +23,8 @@
               </v-flex>
           </v-layout>
       </v-container>
+                  <script src="/canvas.js"></script>
+
   </div>
 </template>
 
@@ -28,7 +34,7 @@ import appIntro from '~/components/intro.vue'
 export default {
   mounted() {
     //starting intro animation
-     //this.$refs.intro.animate_intro();
+     this.$refs.intro.animate_intro();
   },
   methods : {
      animateHomePage() {
@@ -39,13 +45,16 @@ export default {
           targets : ".home_content_right_pan",
           translateX: "-100%",
           delay : 200,
+          opacity : [0,1],
           duration : 1500,
-           backgroundColor: ["#FF174E", "#03204C"],
+          backgroundColor: ["#FF174E", "#03204C"],
           direction: 'alternate',
           easing: 'easeInOutSine',
-          complete : function() {
-
-          }
+        })
+        .add({
+            targets : "#home_canvas .canvas",
+            opacity : [0,1],
+            easing: 'easeInOutSine',
         })
         .add({
            targets : [".home_content_scroll", ".intro_container_contact", ".home_content_nav"],
@@ -79,16 +88,30 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+
+ .canvas {
+        background: #252934;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100%;
+        z-index: -1;
+          opacity: 0;
+    }
+
 .home_content {
   position: relative;
   height: 100vh;
   overflow: hidden;
+
   &_right_pan{
-    width: 40%;
+    width: 100%;
+    opacity: 0;
     position: absolute;
-    right: -50%;
     height: 100vh;
-    background: #03214c;
+    background: #EB3A53;
     z-index: -1;
   }
 }
@@ -111,7 +134,7 @@ export default {
         position: absolute;
         left: 0;
         right: 0;
-        opacity: 1;
+        opacity: 0;
         bottom: 40px;
         margin: auto;
         text-align: center;
