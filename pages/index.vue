@@ -2,10 +2,10 @@
   <div class="home_content">
       <script src="/pt.min.js"></script>
       <section id="home_canvas" class="flex height-fix">
-        <div id="pt" class="canvas"></div>
+         <div id="pt" class="canvas"></div>
       </section>
-      <div class="home_content_right_pan"></div>
       <div class="rounded_item"></div>
+
       <v-container>
           <nuxt-link to="/works" class="home_content_scroll">
              <img src="svg/scroll.svg" alt="">
@@ -15,15 +15,18 @@
               <v-flex x6>
                   <app-intro ref="intro" @onAnimationFinish="animateHomePage" />
               </v-flex>
-              <v-flex x6>
+              <v-flex x6 class="home_content_right">
                   <div class="home_content_nav">
                       <span>Works</span>
                       <span>Skills</span>
                   </div>
+                  <div class="home_content_contact">
+                      <button class="btn_contact"><font-awesome-icon icon="envelope"/></button>
+                      <span>CONTACT</span>
+                   </div>
               </v-flex>
           </v-layout>
       </v-container>
-                  <script src="/canvas.js"></script>
 
   </div>
 </template>
@@ -35,6 +38,8 @@ export default {
   mounted() {
     //starting intro animation
      this.$refs.intro.animate_intro();
+     //starting canvas animation
+     this.animate_canvas();
   },
   methods : {
      animateHomePage() {
@@ -42,22 +47,12 @@ export default {
       this.$anime
         .timeline()
         .add({
-          targets : ".home_content_right_pan",
-          translateX: "-100%",
-          delay : 200,
-          opacity : [0,1],
-          duration : 1500,
-          backgroundColor: ["#FF174E", "#03204C"],
-          direction: 'alternate',
-          easing: 'easeInOutSine',
-        })
-        .add({
             targets : "#home_canvas .canvas",
             opacity : [0,1],
             easing: 'easeInOutSine',
         })
         .add({
-           targets : [".home_content_scroll", ".intro_container_contact", ".home_content_nav"],
+           targets : [".home_content_scroll", ".home_content_contact", ".home_content_nav"],
            opacity : 1,
            easing: 'easeOutExpo',
            translateY : 0,
@@ -79,6 +74,77 @@ export default {
           }
         })
     },
+    animate_canvas() {
+      var space;
+        var colors = [
+          "#FF3F8E", "#04C2C9", "#2E55C1"
+        ];
+
+
+        space = new CanvasSpace("canvas", "#041f4c" ).display();
+        var form = new Form( space );
+
+        // Elements
+        var pts = [];
+        var center = space.size.$divide(1.8);
+        var angle = -(window.innerWidth * 0.5);
+        var count = window.innerWidth * 0.05;
+        if (count > 150) count = 150;
+        var line = new Line(0, angle).to(space.size.x, 0);
+        var mouse = center.clone();
+
+        var r = Math.min(space.size.x, space.size.y) * 1;
+        for (var i=0; i<count; i++) {
+          var p = new Vector( Math.random()*r-Math.random()*r, Math.random()*r-Math.random()*r );
+          p.moveBy( center ).rotate2D( i*Math.PI/count, center);
+          p.brightness = 0.1
+          pts.push( p );
+        }
+
+        // Canvas
+        space.add({
+          animate: function(time, fps, context) {
+
+            for (var i=0; i<pts.length; i++) {
+              // rotate the points slowly
+              var pt = pts[i];
+
+              pt.rotate2D( Const.one_degree / 20, center);
+              form.stroke( false ).fill( colors[i % 3] ).point(pt, 1);
+
+              // get line from pt to the mouse line
+              var ln = new Line( pt ).to( line.getPerpendicularFromPoint(pt));
+
+              // opacity of line derived from distance to the line
+              var opacity = Math.min( 0.8, 1 - Math.abs( line.getDistanceFromPoint(pt)) / r);
+              var distFromMouse = Math.abs(ln.getDistanceFromPoint(mouse))
+
+              if (distFromMouse < 50) {
+                if (pts[i].brightness < 0.3) pts[i].brightness += 0.015
+              } else {
+                if (pts[i].brightness > 0.1) pts[i].brightness -= 0.01
+              }
+
+              var color = "rgba(255,255,255," + pts[i].brightness +")"
+              form.stroke(color).fill( true ).line(ln);
+            }
+          },
+
+          onMouseAction: function(type, x, y, evt) {
+            if (type=="move") {
+              mouse.set(x,y);
+            }
+          },
+
+          onTouchAction: function(type, x, y, evt) {
+            this.onMouseAction(type, x, y);
+          }
+        });
+
+        space.bindMouse();
+        space.play();
+
+    }
   },
   components: {
     appIntro,
@@ -106,14 +172,6 @@ export default {
   height: 100vh;
   overflow: hidden;
 
-  &_right_pan{
-    width: 100%;
-    opacity: 0;
-    position: absolute;
-    height: 100vh;
-    background: #EB3A53;
-    z-index: -1;
-  }
 }
 
 .rounded_item {
@@ -145,6 +203,13 @@ export default {
           width: 30px;
         }
     }
+    &_right{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+
     &_nav {
       opacity: 0;
       color: white;
@@ -155,7 +220,33 @@ export default {
         margin:  0 5px;
       }
     }
+
+    &_contact {
+        opacity: 0;
+        display: flex;
+        align-self: flex-start;
+        flex-direction: column;
+        margin-bottom: 85px;
+        align-self: flex-end;
+        span {
+          color: white;
+          font-size: 12px;
+          margin-top: 5px;
+        }
+      .btn_contact {
+          align-self: flex-start;
+          background: #ff0047;
+          padding: 15px;
+          border-radius: 100%;
+          line-height: 1;
+          color: white;
+          font-size: 20px;
+          box-shadow: -11px 2px 20px rgba(255, 0, 71, 0.4), 9px 4px 6px rgba(255, 0, 71, 0.19);
+      }
+    }
 }
+
+
 </style>
 
 
