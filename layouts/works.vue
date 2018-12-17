@@ -1,0 +1,121 @@
+<template>
+    <v-container class="works_container">
+        <div class="works_container_left_sidebar">
+                <h3>MAROUANE <span>SOUAH</span></h3>
+                <div class="works_container_left_sidebar_contact">
+                    <button class="btn_contact"><font-awesome-icon icon="envelope"/></button>
+                    <span>CONTACT</span>
+                </div>
+        </div>
+        <nuxt />
+        <div class="works_container_right_sidebar">
+            <p class="nav_link">ABOUT</p>
+            <div class="social_icons">
+                <font-awesome-icon   :icon="['fab','github']"/>
+                <font-awesome-icon  :icon="['fab','facebook']"/>
+                <font-awesome-icon  :icon="['fab','linkedin']"/>
+            </div>
+            <p class="nav_link">SKILLS</p>
+        </div>
+    </v-container>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+      }
+    }
+  }
+</script>
+
+<style lang="scss">
+    .works_container {
+        color: white;
+        margin-top: 50px;
+        &_content {
+            width: calc(100% - 240px);
+            margin: 0 auto;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            h1{
+                font-size: 60px;
+                margin: 0;
+                padding: 0;
+                position: relative;
+                position: relative;
+                &::before {
+                    content: "";
+                    background: #ff174e;
+                    width: 60%;
+                    position: absolute;
+                    height: 50%;
+                    right: 0;
+                    bottom: 11px;
+                    z-index: -1;
+                }
+            }
+            p.quote {
+                transform: translate(62px,-9px);
+                font-size: 10px;
+            }
+        }
+        &_left_sidebar  {
+            h3 {
+                font-weight: 200;
+                font-size: 17px; 
+                span {
+                    display: block;
+                }
+            }
+            &_contact {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                button {
+                    height: 40px;
+                    width: 40px;
+                    background: #ff174e;
+                    border-radius: 100%;
+                }
+                span {
+                    font-size: 10px;
+                    margin-top: 6px;
+                }
+            }
+        }
+        &_right_sidebar, &_left_sidebar {
+            position: fixed;
+            height: 100vh;
+            top: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 0;  
+             width: 200px;
+        }
+        &_left_sidebar {
+            left: 0;
+            padding-top: 40px;
+        }
+         &_right_sidebar {
+            border-left: 1px solid #59607182;
+            width: 150px;
+            right: 0;
+            .social_icons {
+                display: flex;
+                flex-direction: column;
+                font-size: 25px;
+                svg {
+                    margin-top: 10px;
+                }
+            } 
+            .nav-link {
+                font-weight: bolder;
+            }
+         }
+    }
+</style>
