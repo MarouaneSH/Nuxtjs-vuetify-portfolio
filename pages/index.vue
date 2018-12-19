@@ -195,6 +195,7 @@ export default {
         opacity: 0;
         bottom: 40px;
         margin: auto;
+        z-index: 5;
         text-align: center;
         color: white;
         transform : translateY(40px);

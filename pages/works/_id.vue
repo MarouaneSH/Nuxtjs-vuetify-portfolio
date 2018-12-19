@@ -1,10 +1,15 @@
 <template>
     <div class="works_container_content">
-        <v-app id="app_single_works">
-            <div class="single_works" v-if="work">
+        <div class="works_back" @click="$router.go(-1)">
+              <font-awesome-icon   :icon="['fas','arrow-up']"/>
+              <span>back to works</span>
+        </div>
+        <v-app id="app_single_works" v-if="work">
+            <div class="single_works">
                 <div class="single_works_bg" 
                 :style="{background : 'url(/img/works/'+work.thumbnail+')'}">
                     <div class="single_works_bg_title"> {{work.name}} </div>
+                   
                 </div>
                 <div class="single_works_content">
                     <div class="single_works_content_info">
@@ -19,10 +24,32 @@
                             <h3 class="item_content_heading">Project name</h3>
                             <p class="item_content_val">{{work.name}} </p>
                         </div>
-                        <div class="item_content">
+                        <div class="item_content" v-if="work.details.project_url">
                             <h3 class="item_content_heading">Project URL</h3>
                             <a href="#" target="_blank" class="item_content_val">{{work.details.project_url}} </a>
                         </div>
+                        <template  v-if="work.details.isApp">
+                            <div class="item_content">
+                                <h3 class="item_content_heading">Links</h3>
+                                <div class="store_badges">
+                                    <a v-if="work.details.store_links.playstore" target="_blank" :href="work.details.store_links.playstore" >
+                                        <img class="playstore_badge"  src="/img/playstore.png" alt="">    
+                                    </a>
+                                    <a v-if="work.details.store_links.appstore" target="_blank" :href="work.details.store_links.appstore" >
+                                        <img class="appstore_badge" src="/img/appstore.png" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="item_content">
+                                <h3 class="item_content_heading">Available on codecanyon</h3>
+                                <div class="store_badges codecanyon">
+                                    <a v-if="work.details.codecanyon" target="_blank" :href="work.details.codecanyon.url" >
+                                        <img src="/img/codecanyon.png" alt="">
+                                    </a>
+                                    <span>For only {{work.details.codecanyon.price}} $</span>
+                                </div>
+                            </div>
+                        </template>
                         <p class="title-sm">Frameworks / languages / Tools used</p>
                         <div class="item_content">
                             <h3 class="item_content_heading">Main</h3>
@@ -48,6 +75,17 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="single_works_screenshots">
+                 <div class="item_content" v-if="getScreenshots">
+                    <h3 class="item_content_heading">Screenshots</h3>
+                    <div class="item_screenshot_container">
+                            <img v-for="(screenshot,index) in getScreenshots" 
+                                :src="screenshot" 
+                                :key="index"
+                                class="screenshots_img">
+                    </div>
+                </div> 
             </div>
         </v-app>
     </div>
@@ -79,11 +117,37 @@ export default {
         return {
             work : null,
         }
+    },
+    computed : {
+        getScreenshots() {
+            if(!this.work.details.screenshots_count) 
+                return;
+            const count = this.work.details.screenshots_count;
+            const id = this.work.id.toLowerCase();
+            return Array.from(Array(count), (_,i) => { 
+                    return `/img/works/screenshots/${id}/${id}-${i + 1}.jpg`;
+            });
+        }
     }
 }
 </script>
 
 <style scoped lang="scss">
+.works_back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 20px;
+    cursor: pointer;
+    svg {
+        font-size: 30px;
+    }
+    span {
+        font-weight: 200;
+        font-size: 10px;
+    }
+}
 .single_works {
     width: 100%;
     &_bg {
@@ -145,6 +209,7 @@ export default {
         }
     }
     .item_content {
+        overflow: hidden;
         margin-left: 10px;
         &:first-of-type {
             margin-top: 15px;
@@ -153,7 +218,8 @@ export default {
             padding-left: 7px;
         }
         a {
-            color : #021b44;
+            color : #234c8e;
+            white-space: nowrap;
         }
         &_technologies {
             display: flex;
@@ -169,11 +235,63 @@ export default {
     }
 }
 
+
+
 .title-sm {
     font-size: 12px;
     font-weight: 200;
     &:not(:first-of-type) {
         margin-top: 20px;
+    }
+}
+
+.store_badges {
+      display: flex;
+      align-items: center;
+      img {
+          align-self: center;
+      }
+    .playstore_badge {
+        max-width: 129px;
+    }
+    .appstore_badge {
+        max-width: 100px;
+    }
+  
+}
+
+
+.single_works_screenshots {
+    text-align: left;
+    .item_content_heading{
+        margin-bottom: 20px;
+    }
+    .screenshots_img {
+        max-width: 100%;
+    }
+    .item_screenshot_container {
+        text-align: center;
+    }
+}
+
+
+.codecanyon {
+    flex-direction: column;
+    align-items: flex-start !important;
+    padding: 8px;
+    a {
+        background: black;
+        border-radius: 10px;
+        padding: 1px 4px;
+        padding-top: 6px;
+    }
+    img {
+        max-width: 100px;
+    }
+    span {
+        display: block;
+        font-weight: 200;
+        font-size: 11px;
     }
 }
 

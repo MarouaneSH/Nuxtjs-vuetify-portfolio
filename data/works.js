@@ -56,11 +56,11 @@ export const works = [
         id : "wklni-com",
         name : "WKLNI",
         thumbnail : "wklni.png",
-        short_desc : "Freelancer platform",
+        short_desc : "Freelancer platform (SPA)",
         technologies : [
+            technologies.laravel,
             technologies.vuejs,
             technologies.vuetify,
-            technologies.laravel,
             technologies.pusher,
         ]
     },
@@ -79,7 +79,7 @@ export const works = [
         id : "pdf-web",
         name : "PDF CREATOR",
         short_desc : "PDF Creator landing page",
-        thumbnail : "pdf-web.png",
+        thumbnail : "pdf-web.jpg",
         technologies : [
             technologies.angular,
         ]
@@ -87,22 +87,22 @@ export const works = [
     {
         id : "actiondevisprox",
         name : "ActionDevisProx",
-        short_desc : "Lead generation website",
-        thumbnail : "actiondevisprox.png",
+        short_desc : "Lead generation platform",
+        thumbnail : "actiondevisprox.jpg",
         technologies : [
+            technologies.laravel,
             technologies.vuejs,
             technologies.vuetify,
-            technologies.laravel,
         ]
     },
     {
-        id : "franchise-france",
-        name : "FRANCHISE FRANCE",
-        short_desc : "collaborative franchise platform",
-        thumbnail : "franchise.png",
+        id : "cryptoz-app",
+        name : "CRYPTOZ",
+        short_desc : "Cryptocurrency mobile application",
+        thumbnail : "cryptoz-app.png",
         technologies : [
-            technologies.laravel,
-            technologies.jquery,
+            technologies.ionic,
+            technologies.angular,
         ]
     },
     {
@@ -114,6 +114,27 @@ export const works = [
             technologies.ionic,
             technologies.angular,
         ]
-    }
+    },
+    {
+        id : "franchise-france",
+        name : "FRANCHISE FRANCE",
+        short_desc : "collaborative franchise platform",
+        thumbnail : "franchise.jpg",
+        technologies : [
+            technologies.laravel,
+            technologies.jquery,
+        ]
+    },
+    {
+        id : "actiontravaux",
+        name : "ActionTravaux.org",
+        short_desc : "Leads Generation website",
+        thumbnail : "franchise.jpg",
+        technologies : [
+            technologies.laravel,
+            technologies.jquery,
+        ]
+    },
+    
 ];
 
