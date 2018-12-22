@@ -1,7 +1,7 @@
 <template>
     <v-container class="works_container">
         <div class="works_container_left_sidebar">
-                <h3>MAROUANE <span>SOUAH</span></h3>
+                <h3><nuxt-link to="/">MAROUANE <span>SOUAH</span></nuxt-link> </h3>
                 <div class="works_container_left_sidebar_contact">
                     <button class="btn_contact"><font-awesome-icon icon="envelope"/></button>
                     <span>CONTACT</span>
@@ -100,6 +100,10 @@
         &_left_sidebar {
             left: 0;
             padding-top: 40px;
+            a {
+                color: white;
+                text-decoration: none;
+            }
         }
          &_right_sidebar {
             border-left: 1px solid #59607182;

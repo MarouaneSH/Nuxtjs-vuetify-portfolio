@@ -2,7 +2,7 @@ const technologies = {
     vuejs : {
         name : "vuejs",
         url : "vuejs.png",
-        description : "open-source JavaScript framework for building user interfaces and single-page applications",
+        description : "Vuejs is a open-source JavaScript framework for building user interfaces and single-page applications",
         width_thumbnail : "50px",
     },
     laravel : {
@@ -47,7 +47,19 @@ const technologies = {
         description : "Ionic is a complete open-source SDK for hybrid mobile app development ",
         width_thumbnail : "55px",
     },
-
+    lumen : {
+        name : "lumen",
+        url : "lumen.png",
+        description : "Lumen, The Stunningly Fast PHP Micro-Framework By Laravel.",
+        width_thumbnail : "35px",
+    },
+    shopify : {
+        name : "Shopify",
+        url : "shopify.png",
+        description : "Shopify E-commerce Platform",
+        width_thumbnail : "35px",
+    },
+    
 }
 
 
@@ -86,7 +98,7 @@ export const works = [
     },
     {
         id : "actiondevisprox",
-        name : "ActionDevisProx",
+        name : "ACTIONDEVISPROX.ORG",
         short_desc : "Lead generation platform",
         thumbnail : "actiondevisprox.jpg",
         technologies : [
@@ -127,14 +139,52 @@ export const works = [
     },
     {
         id : "actiontravaux",
-        name : "ActionTravaux.org",
+        name : "ACTIONTRAVAUX.ORG",
         short_desc : "Leads Generation website",
-        thumbnail : "franchise.jpg",
+        thumbnail : "actiontravaux.jpg",
         technologies : [
             technologies.laravel,
             technologies.jquery,
         ]
     },
-    
+    {
+        id : "salembrothers",
+        name : "SALEMBROTHERS.CA (SPA)",
+        short_desc : "Canada foods distributors company ",
+        thumbnail : "salembrothers.jpg",
+        technologies : [
+            technologies.laravel,
+            technologies.lumen,
+            technologies.angular,
+        ]
+    },
+    {
+        id : "malt",
+        name : "MALT.MA",
+        short_desc : "E-commerce website",
+        thumbnail : "malt.jpg",
+        technologies : [
+            technologies.shopify,
+        ]
+    },
+    {
+        id : "forwinter",
+        name : "FORWINTER.SHOP",
+        short_desc : "E-commerce website",
+        thumbnail : "forwinter.jpg",
+        technologies : [
+            technologies.shopify,
+        ]
+    },
+    {
+        id : "marouaneme",
+        name : "OLD PORTFOLIO",
+        short_desc : "Personal portfolio",
+        thumbnail : "marouaneme.jpg",
+        technologies : [
+            technologies.laravel,
+            technologies.angular,
+        ]
+    },
 ];
 

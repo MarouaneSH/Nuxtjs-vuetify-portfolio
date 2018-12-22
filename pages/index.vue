@@ -1,11 +1,10 @@
 <template>
-  <div class="home_content">
+  <div class="home_content" @scroll.native="test()">
       <script src="/pt.min.js"></script>
       <section id="home_canvas" class="flex height-fix">
          <div id="pt" class="canvas"></div>
       </section>
       <div class="rounded_item"></div>
-
       <v-container>
           <nuxt-link to="/works" class="home_content_scroll">
              <img src="svg/scroll.svg" alt="">
@@ -17,9 +16,11 @@
               </v-flex>
               <v-flex x6 class="home_content_right">
                   <div class="home_content_nav">
+                      <span>About</span>
                       <span>Works</span>
                       <span>Skills</span>
                   </div>
+
                   <div class="home_content_contact">
                       <button class="btn_contact"><font-awesome-icon icon="envelope"/></button>
                       <span>CONTACT</span>
@@ -36,13 +37,31 @@ import appIntro from '~/components/intro.vue'
 
 export default {
   mounted() {
+    console.log(this.$store.getters.introAnimationStatus);
     //starting intro animation
      this.$refs.intro.animate_intro();
      //starting canvas animation
      this.animate_canvas();
+
+     //onscroll event
+     window.addEventListener('wheel', (e) => {
+      if (e.deltaY > 0 && this.animation_status == "finished") {
+       this.$router.push({
+            path: '/works'
+        })
+        window.removeEventListener("wheel",null);
+      }
+    });
+  },
+  data() { 
+    return {
+      animation_status : null,
+    }
   },
   methods : {
      animateHomePage() {
+      //make animation finished
+      this.animation_status = "starting";
       let _this = this;
       this.$anime
         .timeline()
@@ -71,8 +90,16 @@ export default {
           easing: "easeOutExpo",
           delay: function(el, i) {
             return 50 * i;
+          },
+          complete : function() {
+              _this.animation_status = "finished";
           }
         })
+
+      
+    },
+    test() {
+      console.log("dssd");
     },
     animate_canvas() {
       var space;
@@ -81,7 +108,7 @@ export default {
         ];
 
 
-        space = new CanvasSpace("canvas", "#041f4c" ).display();
+        space = new CanvasSpace("canvas", "#153667" ).display();
         var form = new Form( space );
 
         // Elements
@@ -164,7 +191,7 @@ export default {
         width: 100vw;
         height: 100%;
         z-index: -1;
-          opacity: 0;
+        opacity: 0;
     }
 
 .home_content {
@@ -216,7 +243,17 @@ export default {
       color: white;
       text-align: right;
       span{
-        font-size: 20px;
+        &::before{
+            position: absolute;
+            background: #ff0047;
+            content: "";
+            height: 19px;
+            width: 59%;
+            z-index: -1;
+            bottom: 0;
+        }
+        font-size: 25px;
+        position: relative;
         font-weight: bold;
         margin:  0 5px;
       }
