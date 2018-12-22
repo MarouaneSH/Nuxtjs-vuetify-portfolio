@@ -1,5 +1,5 @@
 <template>
-  <div class="home_content" @scroll.native="test()">
+  <div class="home_content">
       <script src="/pt.min.js"></script>
       <section id="home_canvas" class="flex height-fix">
          <div id="pt" class="canvas"></div>
@@ -8,7 +8,7 @@
       <v-container>
           <nuxt-link to="/works" class="home_content_scroll">
              <img src="svg/scroll.svg" alt="">
-             <p> scroll to discover</p>
+             <p> click to discover</p>
           </nuxt-link>
           <v-layout row>
               <v-flex x6>
@@ -37,21 +37,10 @@ import appIntro from '~/components/intro.vue'
 
 export default {
   mounted() {
-    console.log(this.$store.getters.introAnimationStatus);
-    //starting intro animation
+     //starting intro animation
      this.$refs.intro.animate_intro();
      //starting canvas animation
      this.animate_canvas();
-
-     //onscroll event
-     window.addEventListener('wheel', (e) => {
-      if (e.deltaY > 0 && this.animation_status == "finished") {
-       this.$router.push({
-            path: '/works'
-        })
-        window.removeEventListener("wheel",null);
-      }
-    });
   },
   data() { 
     return {

@@ -4,11 +4,16 @@ import Vuex from 'vuex'
 const createStore = () => {
   return new Vuex.Store({
     state: {
-      introAnimation: false
+      introAnimationComplete: false
     },
     getters : {
         introAnimationStatus(state) {
-            return state.introAnimation;
+            return state.introAnimationComplete;
+        }
+    },
+    mutations : {
+        completeIntroAnimation(state) {
+            state.introAnimationComplete = true;
         }
     }
 
