@@ -1,7 +1,12 @@
 <template>
     <v-container class="works_container">
         <div class="works_container_left_sidebar">
-                <h3><nuxt-link to="/">MAROUANE <span>SOUAH</span></nuxt-link> </h3>
+                <nuxt-link to="/" >
+                    <div ref="name_header">
+                        <h3  >MAROUANE </h3> 
+                        <h3> SOUAH</h3>
+                    </div>
+                </nuxt-link> 
                 <div class="works_container_left_sidebar_contact">
                     <button class="btn_contact"><font-awesome-icon icon="envelope"/></button>
                     <span>CONTACT</span>
@@ -22,6 +27,30 @@
 
 <script>
   export default {
+    mounted() {
+        this.$refs.name_header.innerHTML = this.$refs.name_header.innerText.replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>")
+        this.$anime.timeline({loop: true})
+        .add({
+            targets: '.works_container_left_sidebar h3 .letter',
+            translateX: [40,0],
+            translateZ: 0,
+            opacity: [0,1],
+            easing: "easeOutExpo",
+            duration: 1200,
+            delay: function(el, i) {
+            return 500 + 30 * i;
+            }
+        }).add({
+            targets: '.works_container_left_sidebar h3 .letter',
+            translateX: [0,-30],
+            opacity: [1,0],
+            easing: "easeInExpo",
+            duration: 1100,
+            delay: function(el, i) {
+            return 100 + 30 * i;
+            }
+        });
+    },
     data() {
       return {
       }
@@ -66,7 +95,7 @@
             h3 {
                 font-weight: 200;
                 font-size: 17px; 
-                span {
+                .newline {
                     display: block;
                 }
             }
