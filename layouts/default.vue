@@ -16,7 +16,7 @@
 <style>
  body{
 
-    background-image: url("/svg/bg.svg"),linear-gradient(180deg,#303fd9 0,#031b4e);
+    background-image: url("/svg/bg1.svg"),linear-gradient(180deg,#303fd9 0,#031b4e);
     background-size: cover;
      background-attachment: fixed;
     width: 100%;
