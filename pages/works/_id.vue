@@ -4,88 +4,104 @@
               <font-awesome-icon   :icon="['fas','arrow-up']"/>
               <span>back to works</span>
         </div>
-        <v-app id="app_single_works" v-if="work">
-            <div class="single_works">
-                <div class="single_works_bg" 
-                :style="{background : 'url(/img/works/'+work.thumbnail+')'}">
-                    <div class="single_works_bg_title"> {{work.name}} </div>
-                   
-                </div>
-                <div class="single_works_content">
-                    <div class="single_works_content_info">
-                       <div class="item_content">
-                            <h3 class="item_content_heading">Project description</h3>
-                            <p class="item_content_val project_desc">{{work.details.description}}  </p>
-                        </div> 
+        <v-app id="app_single_works" >
+            <div class="single_works" v-if="loading">
+                <div class="loding_single_works">
+                    <div class="single_works_bg">
+                            <div class="single_works_bg_title loading_bar "></div>
                     </div>
-                    <div class="single_works_content_details">
-                        <p class="title-sm">PROJECT DETAILS</p>
-                        <div class="item_content">
-                            <h3 class="item_content_heading">Project name</h3>
-                            <p class="item_content_val">{{work.name}} </p>
-                        </div>
-                        <div class="item_content" v-if="work.details.project_url">
-                            <h3 class="item_content_heading">Project URL</h3>
-                            <a href="#" target="_blank" class="item_content_val">{{work.details.project_url}} </a>
-                        </div>
-                        <template  v-if="work.details.isApp">
-                            <div class="item_content">
-                                <h3 class="item_content_heading">Links</h3>
-                                <div class="store_badges">
-                                    <a v-if="work.details.store_links.playstore" target="_blank" :href="work.details.store_links.playstore" >
-                                        <img class="playstore_badge"  src="/img/playstore.png" alt="">    
-                                    </a>
-                                    <a v-if="work.details.store_links.appstore" target="_blank" :href="work.details.store_links.appstore" >
-                                        <img class="appstore_badge" src="/img/appstore.png" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="item_content">
-                                <h3 class="item_content_heading">Available on codecanyon</h3>
-                                <div class="store_badges codecanyon">
-                                    <a v-if="work.details.codecanyon" target="_blank" :href="work.details.codecanyon.url" >
-                                        <img src="/img/codecanyon.png" alt="">
-                                    </a>
-                                    <span>For only {{work.details.codecanyon.price}} $</span>
-                                </div>
-                            </div>
-                        </template>
-                        <p class="title-sm">Frameworks / languages / Tools used</p>
-                        <div class="item_content">
-                            <h3 class="item_content_heading">Main</h3>
-                            <div class="item_content_technologies">
-                                <v-tooltip v-for="(techno,index) in work.technologies"  
-                                            :key="index"
-                                            bottom >
-                                    <img :src="'/img/technologies/'+ techno.url"
-                                        :style="{width : techno.width_thumbnail}"
-                                        slot="activator"
-                                        alt="">
-                                    <span>{{techno.description}} </span>
-                                </v-tooltip>
-                            </div>
-                        </div>
-                        <div class="item_content">
-                            <h3 class="item_content_heading">Others</h3>
-                            <p class="item_content_val">
-                                 <v-chip class="item_content_chip" v-for="(techno,index) in work.details.other_technologies" :key="index">
-                                    {{techno}}
-                                </v-chip>
-                            </p>
-                        </div>
-                    </div>
+                     <div class="single_works_content">
+                           <div class="single_works_content_info">
+                               <div class="item_content">
+                                    <h3 class="item_content_heading loading_bar"></h3>
+                                    <p class="item_content_val project_desc loading_bar"></p>
+                                </div> 
+                           </div>
+                     </div>
                 </div>
             </div>
-            <div class="single_works_screenshots">
-                 <div class="item_content" v-if="getScreenshots">
-                    <h3 class="item_content_heading">Screenshots</h3>
-                    <div class="item_screenshot_container">
-                            <img v-for="(screenshot,index) in getScreenshots" 
-                                :src="screenshot" 
-                                :key="index"
-                                class="screenshots_img">
+            <div v-if="work" v-show="!loading">
+                <div class="single_works">
+                    <div class="single_works_bg" 
+                        :style="{background : 'url(/img/works/'+work.thumbnail+')'}">
+                        <div class="single_works_bg_title"> {{work.name}} </div>
                     </div>
-                </div> 
+                    <div class="single_works_content">
+                        <div class="single_works_content_info">
+                        <div class="item_content">
+                                <h3 class="item_content_heading">Project description</h3>
+                                <p class="item_content_val project_desc">{{work.details.description}}  </p>
+                            </div> 
+                        </div>
+                        <div class="single_works_content_details">
+                            <p class="title-sm">PROJECT DETAILS</p>
+                            <div class="item_content">
+                                <h3 class="item_content_heading">Project name</h3>
+                                <p class="item_content_val">{{work.name}} </p>
+                            </div>
+                            <div class="item_content" v-if="work.details.project_url">
+                                <h3 class="item_content_heading">Project URL</h3>
+                                <a href="#" target="_blank" class="item_content_val">{{work.details.project_url}} </a>
+                            </div>
+                            <template  v-if="work.details.isApp">
+                                <div class="item_content">
+                                    <h3 class="item_content_heading">Links</h3>
+                                    <div class="store_badges">
+                                        <a v-if="work.details.store_links.playstore" target="_blank" :href="work.details.store_links.playstore" >
+                                            <img class="playstore_badge"  src="/img/playstore.png" alt="">    
+                                        </a>
+                                        <a v-if="work.details.store_links.appstore" target="_blank" :href="work.details.store_links.appstore" >
+                                            <img class="appstore_badge" src="/img/appstore.png" alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="item_content">
+                                    <h3 class="item_content_heading">Available on codecanyon</h3>
+                                    <div class="store_badges codecanyon">
+                                        <a v-if="work.details.codecanyon" target="_blank" :href="work.details.codecanyon.url" >
+                                            <img src="/img/codecanyon.png" alt="">
+                                        </a>
+                                        <span>For only {{work.details.codecanyon.price}} $</span>
+                                    </div>
+                                </div>
+                            </template>
+                            <p class="title-sm">Frameworks / languages / Tools used</p>
+                            <div class="item_content">
+                                <h3 class="item_content_heading">Main</h3>
+                                <div class="item_content_technologies">
+                                    <v-tooltip v-for="(techno,index) in work.technologies"  
+                                                :key="index"
+                                                bottom >
+                                        <img :src="'/img/technologies/'+ techno.url"
+                                            :style="{width : techno.width_thumbnail}"
+                                            slot="activator"
+                                            alt="">
+                                        <span>{{techno.description}} </span>
+                                    </v-tooltip>
+                                </div>
+                            </div>
+                            <div class="item_content">
+                                <h3 class="item_content_heading">Others</h3>
+                                <p class="item_content_val">
+                                    <v-chip class="item_content_chip" v-for="(techno,index) in work.details.other_technologies" :key="index">
+                                        {{techno}}
+                                    </v-chip>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="single_works_screenshots">
+                    <div class="item_content" v-if="getScreenshots">
+                        <h3 class="item_content_heading">Screenshots</h3>
+                        <div class="item_screenshot_container">
+                                <img v-for="(screenshot,index) in getScreenshots" 
+                                    :src="screenshot" 
+                                    :key="index"
+                                    class="screenshots_img">
+                        </div>
+                    </div> 
+                </div>
             </div>
         </v-app>
     </div>
@@ -112,10 +128,14 @@ export default {
               this.$nuxt.error({ statusCode: 404 })
         }
       
+       setTimeout(()=> {
+            this.loading = false;
+        }, 900)
     },
     data() {
         return {
             work : null,
+            loading : true,
         }
     },
     computed : {
@@ -127,7 +147,7 @@ export default {
             return Array.from(Array(count), (_,i) => { 
                     return `/img/works/screenshots/${id}/${id}-${i + 1}.jpg`;
             });
-        }
+        },
     }
 }
 </script>
@@ -299,5 +319,38 @@ export default {
     width: 100%;
     background: none;
     color: white;
+    min-height: 100vh;
+}
+
+.loding_single_works {
+    background: #0000001f;
+    .single_works_bg_title::before { background :none; }
+    .single_works_bg_title {
+        align-self: flex-start;
+        margin: 30px;
+         animation: loading 1s  infinite alternate-reverse;
+    }
+    .loading_bar {
+        height: 19px;
+        width: 40%;
+        background: #3e5677;
+        border-radius: 2px;
+      
+    }
+    .item_content_heading {
+          animation: loading 2s  infinite alternate-reverse;
+    }
+    .item_content_val {
+          animation: loading 1s .5s infinite alternate-reverse;
+    }
+}
+
+@keyframes loading {
+    from {
+        width: 10%;
+    }
+    from {
+        width: 90%;
+    }
 }
 </style>

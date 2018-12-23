@@ -2,13 +2,13 @@
     <v-container class="works_container">
         <div class="works_container_left_sidebar">
                 <nuxt-link to="/" >
-                    <div ref="name_header">
-                        <h3  >MAROUANE </h3> 
-                        <h3> SOUAH</h3>
-                    </div>
+                        <h3 class="name_header opacity-pulse" >
+                            MAROUANE <span class="newline">SOUAH</span>
+                            <span class="back_home"> <font-awesome-icon icon="long-arrow-alt-left"/> BACK TO HOME</span> 
+                        </h3> 
                 </nuxt-link> 
                 <div class="works_container_left_sidebar_contact">
-                    <button class="btn_contact"><font-awesome-icon icon="envelope"/></button>
+                    <button class="btn_contact pulse"><font-awesome-icon icon="envelope"/></button>
                     <span>CONTACT</span>
                 </div>
         </div>
@@ -28,28 +28,7 @@
 <script>
   export default {
     mounted() {
-        this.$refs.name_header.innerHTML = this.$refs.name_header.innerText.replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>")
-        this.$anime.timeline({loop: true})
-        .add({
-            targets: '.works_container_left_sidebar h3 .letter',
-            translateX: [40,0],
-            translateZ: 0,
-            opacity: [0,1],
-            easing: "easeOutExpo",
-            duration: 1200,
-            delay: function(el, i) {
-            return 500 + 30 * i;
-            }
-        }).add({
-            targets: '.works_container_left_sidebar h3 .letter',
-            translateX: [0,-30],
-            opacity: [1,0],
-            easing: "easeInExpo",
-            duration: 1100,
-            delay: function(el, i) {
-            return 100 + 30 * i;
-            }
-        });
+        
     },
     data() {
       return {
@@ -98,6 +77,9 @@
                 .newline {
                     display: block;
                 }
+                .back_home {
+                    font-size: 8px;
+                }
             }
             &_contact {
                 display: flex;
@@ -109,6 +91,7 @@
                     background: #ff174e;
                     border-radius: 100%;
                 }
+                
                 span {
                     font-size: 10px;
                     margin-top: 6px;
@@ -135,7 +118,7 @@
             }
         }
          &_right_sidebar {
-            border-left: 1px solid #59607182;
+            border-left: 1px solid rgba(250, 251, 255, 0.52);
             width: 150px;
             right: 0;
             .social_icons {
@@ -151,4 +134,5 @@
             }
          }
     }
+
 </style>

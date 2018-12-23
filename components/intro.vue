@@ -265,12 +265,14 @@ export default {
     }
 }
 
+
 .intro_container_polygon polygon {
-  display: none;
-  transform: rotate(40deg);
   opacity : 0;
-  animation: polygonInfinit 2s 2.2s infinite alternate ;
-  animation: polygon 2s .1s forwards;
+  // display: none;
+  // transform: rotate(40deg);
+  // opacity : 0;
+  // animation: polygonInfinit 2s 2.2s infinite alternate ;
+  // animation: polygon 2s .1s forwards;
 }
 
 .intro-completed .intro_container_polygon polygon {

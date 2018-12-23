@@ -7,11 +7,11 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: pkg.name,
+    title: "Marouane Souah | Full stack web and mobile developer",
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: pkg.description }
+      { hid: 'description', name: 'description', content: "Hi, I'm Marouane souah and i'm a full stack web and mobile developer from Morocco, Essaouira ( Laravel & VueJS expert)" }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
