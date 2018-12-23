@@ -50,12 +50,6 @@ export default {
       this.$anime
         .timeline()
         .add({
-          targets:".intro_container_polygon polygond",
-          opacity: 1,
-          translateX : ["200px", 0],
-          easing: "easeInOutQuint",
-        })
-        .add({
            targets : [".home_content_scroll", ".home_content_contact", ".home_content_nav"],
            opacity : 1,
            easing: 'easeOutExpo',
@@ -145,18 +139,9 @@ export default {
       color: white;
       text-align: right;
       span{
-        &::before{
-            position: absolute;
-            background: #ff0047;
-            content: "";
-            height: 19px;
-            width: 59%;
-            z-index: -1;
-            bottom: 0;
-        }
-        font-size: 25px;
+        font-size: 15px;
         position: relative;
-        font-weight: bold;
+        font-weight: 200;
         margin:  0 5px;
       }
     }
