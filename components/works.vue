@@ -69,7 +69,7 @@ export default {
 .loading_box {
     width: 400px !important;
     height: 200px;
-    background: #0000001f;
+    background: rgba(1, 81, 213, 0.77)  ;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
@@ -77,7 +77,7 @@ export default {
     &_title, &_techno {
         height: 19px;
         width: 20%;
-        background: #3e5677;
+        background: #dee2e85e;
         margin: 10px 20px;
         border-radius: 2px;
     }

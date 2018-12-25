@@ -82,6 +82,12 @@ export default {
   components: {
     appIntro,
 
+  },
+  leave: function (el) {
+      console.log("sdsd");
+      setTimeout(() => {
+          done();
+      }, 900);
   }
 }
 </script>
