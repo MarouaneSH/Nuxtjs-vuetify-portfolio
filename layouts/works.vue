@@ -2,7 +2,7 @@
     <v-container class="works_container">
         <div class="works_container_left_sidebar">
                 <nuxt-link to="/" >
-                        <h3 class="name_header opacity-pulse" >
+                        <h3 class="name_header" >
                             MAROUANE <span class="newline">SOUAH</span>
                             <span class="back_home"> <font-awesome-icon icon="long-arrow-alt-left"/> BACK TO HOME</span> 
                         </h3> 

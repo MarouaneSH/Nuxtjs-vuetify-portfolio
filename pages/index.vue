@@ -24,7 +24,6 @@
               </v-flex>
           </v-layout>
       </v-container>
-
   </div>
 </template>
 
@@ -32,7 +31,6 @@
 import appIntro from '~/components/intro.vue'
 
 export default {
-  transition : "slide-fade",
   mounted() {
      //starting intro animation
      this.$refs.intro.animate_intro();
@@ -92,9 +90,18 @@ export default {
 }
 </script>
 
+
 <style scoped lang="scss">
 
-
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 5s;
+  background-image: none;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+   background-image: none;
+   transition: opacity 5s;
+}
 
 
 .home_content {

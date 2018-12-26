@@ -323,7 +323,7 @@ export default {
 }
 
 .loding_single_works {
-    background: #0000001f;
+    background:  rgba(1, 81, 213, 0.77)  ;
     .single_works_bg_title::before { background :none; }
     .single_works_bg_title {
         align-self: flex-start;
@@ -333,7 +333,7 @@ export default {
     .loading_bar {
         height: 19px;
         width: 40%;
-        background: #3e5677;
+        background: #dee2e85e;
         border-radius: 2px;
       
     }
