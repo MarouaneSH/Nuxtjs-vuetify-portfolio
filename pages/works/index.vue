@@ -17,7 +17,7 @@
 import appWorks from '~/components/works.vue'
  
 export default {
-    layout: 'works',
+    layout: 'secondary',
     data(){
       return {
             parentAnimationComplete : false

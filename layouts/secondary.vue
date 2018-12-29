@@ -28,7 +28,11 @@
 <script>
   export default {
     mounted() {
-        
+        // Change background Color
+        if(!this.$store.getters.backgroundStatus) {
+            this.$store.commit('changeBgImage');
+        }
+       
     },
     data() {
       return {

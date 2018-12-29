@@ -112,7 +112,7 @@ import {works}  from "../../data/works";
 import {works_details}  from "../../data/works-details";
 
 export default {
-    layout: 'works',
+    layout: 'secondary',
     mounted () {
         const id =this.$route.params.id;
         this.work = works.filter((w)=>  {
@@ -168,7 +168,12 @@ export default {
         font-size: 10px;
     }
 }
+.works_container_content {
+    background : rgba(1, 81, 213, 0.6);
+    padding: 20px 0;
+}
 .single_works {
+    
     width: 100%;
     &_bg {
         width: 100%;
@@ -285,6 +290,9 @@ export default {
     text-align: left;
     .item_content_heading{
         margin-bottom: 20px;
+    }
+    .item_content_heading {
+        padding-left:20px;
     }
     .screenshots_img {
         max-width: 100%;
