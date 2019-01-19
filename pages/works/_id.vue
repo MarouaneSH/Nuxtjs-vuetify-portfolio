@@ -169,7 +169,6 @@ export default {
     }
 }
 .works_container_content {
-    background : rgba(1, 81, 213, 0.6);
     padding: 20px 0;
 }
 .single_works {

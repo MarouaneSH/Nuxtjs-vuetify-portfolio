@@ -7,20 +7,21 @@
                             <span class="back_home"> <font-awesome-icon icon="long-arrow-alt-left"/> BACK TO HOME</span> 
                         </h3> 
                 </nuxt-link> 
-                <div class="works_container_left_sidebar_contact">
+                <nuxt-link to="/contact" class="works_container_left_sidebar_contact">
                     <button class="btn_contact pulse"><font-awesome-icon icon="envelope"/></button>
                     <span>CONTACT</span>
-                </div>
+                </nuxt-link>
         </div>
         <nuxt />
         <div class="works_container_right_sidebar">
-            <p class="nav_link">ABOUT</p>
+            <nuxt-link to="/about" class="nav_link default_link" v-if="currentRoute != 'about' && currentRoute != 'skills'">ABOUT</nuxt-link>
+            <nuxt-link to="/works" class="nav_link default_link" v-if="currentRoute != 'works'">Works</nuxt-link>
             <div class="social_icons">
                 <font-awesome-icon   :icon="['fab','github']"/>
                 <font-awesome-icon  :icon="['fab','facebook']"/>
                 <font-awesome-icon  :icon="['fab','linkedin']"/>
             </div>
-            <p class="nav_link">SKILLS</p>
+            <nuxt-link to="/skills" class="nav_link default_link">SKILLS</nuxt-link>
         </div>
     </v-container>
 </template>
@@ -28,15 +29,19 @@
 <script>
   export default {
     mounted() {
-        // Change background Color
+        // Change background IMAGE
         if(!this.$store.getters.backgroundStatus) {
-            this.$store.commit('changeBgImage');
+            this.$store.commit('changeBgImage',"bg1.svg");
         }
-       
     },
     data() {
       return {
       }
+    },
+    computed : {
+        currentRoute() {
+            return this.$nuxt.$route.name;
+        }
     }
   }
 </script>
@@ -76,7 +81,7 @@
         }
         &_left_sidebar  {
             h3 {
-                font-weight: 200;
+                font-weight: bold;
                 font-size: 17px; 
                 .newline {
                     display: block;
@@ -133,8 +138,20 @@
                     margin-top: 10px;
                 }
             } 
-            .nav-link {
-                font-weight: bolder;
+            a{
+                font-weight: bold;
+                font-size: 15px;
+                position: relative;
+                &:before {
+                    content: "";
+                    position: absolute;
+                    background: #ff0047;
+                    height: 7px;
+                    bottom: 4px;
+                    left: 2px;
+                    width: 51%;
+                    z-index: -1;
+                }
             }
          }
     }

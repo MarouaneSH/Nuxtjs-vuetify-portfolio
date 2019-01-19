@@ -55,12 +55,12 @@ export default {
                     targets : ".panel_elem_single",
                     easing : "linear",
                     translateY : "-200vh",
-                        delay: function(el, i) {
-                            return 200 * i;
-                        },
-                        complete : function() {
-                        _this.$store.commit('completeWorkAnimation'); 
-                        }
+                    delay: function(el, i) {
+                        return 200 * i;
+                    },
+                    complete : function() {
+                    _this.$store.commit('completeWorkAnimation'); 
+                    }
                 })
                 .add({
                     targets : ".works_container_content h1",

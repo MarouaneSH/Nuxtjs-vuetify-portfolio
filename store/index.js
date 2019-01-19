@@ -4,7 +4,7 @@ import Vuex from 'vuex'
 const createStore = () => {
   return new Vuex.Store({
     state: {
-      introAnimationComplete: false,
+      introAnimationComplete: true,
       workAnimationCompleted : false,
       backgroundChanged : false,
     },
@@ -26,8 +26,8 @@ const createStore = () => {
         completeWorkAnimation(state) {
             state.workAnimationCompleted = true;
         },
-        changeBgImage() {
-            document.querySelector("body").style.backgroundImage = 'url("/svg/bg.svg"),linear-gradient(180deg,#303fd9 0,#031b4e)'
+        changeBgImage(state,context) {
+            document.querySelector("body").style.backgroundImage = `url("/svg/${context}"),linear-gradient(180deg,#303fd9 0,#031b4e)`;
         }
     }
 

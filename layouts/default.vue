@@ -6,6 +6,13 @@
 
 <script>
   export default {
+    mounted() {
+       // Change background Color
+        if(!this.$store.getters.backgroundStatus && this.$store.getters.introAnimationStatus) {
+            this.$store.commit('changeBgImage',"bg.svg");
+        }
+       
+    },
     data() {
       return {
       }

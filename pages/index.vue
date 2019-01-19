@@ -2,19 +2,22 @@
   <div class="home_content">
       <div class="rounded_item"></div>
       <v-container>
-          <nuxt-link to="/works" class="home_content_scroll">
-             <img src="svg/scroll.svg" alt="Marouane Souah Portfolio">
-             <p> click to discover</p>
-          </nuxt-link>
+          <div class="home_content_scroll">
+            <nuxt-link to="/works" class="default_link">
+              <img src="svg/scroll.svg" alt="Marouane Souah Portfolio">
+              <p> click to discover</p>
+            </nuxt-link>
+             
+          </div>
           <v-layout row>
               <v-flex x6>
                   <app-intro ref="intro" @onAnimationFinish="animateHomePage" />
               </v-flex>
               <v-flex x6 class="home_content_right">
                   <div class="home_content_nav">
-                      <span>About</span>
-                      <span>Works</span>
-                      <span>Skills</span>
+                      <nuxt-link to="/about" class="default_link"> <span>About</span> </nuxt-link> 
+                      <nuxt-link to="/works" class="default_link"><span>Works</span> </nuxt-link> 
+                        <nuxt-link to="/about" class="default_link"> <span>Skills</span> </nuxt-link> 
                   </div>
 
                   <div class="home_content_contact ">
@@ -153,10 +156,22 @@ export default {
       color: white;
       text-align: right;
       span{
-        font-size: 15px;
+        font-size: 20px;
         position: relative;
-        font-weight: 200;
+        font-weight: bold;
         margin:  0 5px;
+        &::before {
+          content: "";
+          position: absolute;
+          width: 50%;
+          height: 4px;
+          background: #f33a68;
+          bottom: 6px;
+          z-index: -1;
+          /* top: 0; */
+          margin: auto;
+          border-radius: 2px;
+        }
       }
     }
 
