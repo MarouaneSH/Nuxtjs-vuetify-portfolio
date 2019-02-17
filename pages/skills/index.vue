@@ -2,7 +2,7 @@
     <div class="skills_wrapper">
         <h2 class="skills_wrapper_headline">What I DO ?</h2>
         <v-layout row wrap style="width: 100%" class="skils_container">
-            <v-flex xs4 class="skils_lists">
+            <v-flex md4 xs12 class="skils_lists">
                 <h5>Front end</h5>
                 <ul>
                    <li> JavaScript es6+</li>
@@ -19,7 +19,7 @@
                    <li> Bootstrap / Bulma</li>
                 </ul>
             </v-flex>
-            <v-flex xs4 class="skils_lists">
+            <v-flex md4 xs12 class="skils_lists">
                 <h5>Back end</h5>
                 <ul>
                    <li> Laravel Framework</li>
@@ -33,7 +33,7 @@
                    <li> Laravel ECOSYSTEM (Nova - Scout - Homestead - Echo - Voyager)</li>
                 </ul>
             </v-flex>
-            <v-flex xs4 class="skils_lists">
+            <v-flex md4 xs12 class="skils_lists">
                  <h5>OTHERS</h5>
                  <ul>
                    <li> Git / Mercurial</li>
@@ -69,19 +69,13 @@ export default {
                     easing : "easeInOutSine",
                     opacity : [0,1],
                     translateY : ["-20px",0],
-                    delay: function(el, i) {
-                        return 200 * i;
-                    },
                 })
                 .add({
                     targets : ".skils_lists h5",
                     easing : "easeInOutSine",
                     opacity : [0,1],
                     translateY : ["-20px",0],
-                    delay: function(el, i) {
-                        return 2000 * i;
-                    },
-                     offset : "-=7000"
+                     offset : "-=900"
                 })
     }
 }
@@ -148,6 +142,12 @@ export default {
         h5 {
              font-size: 16px;
              text-transform: uppercase;
+        }
+    }
+
+     @media only screen and (max-width: 990px) {
+        .skills_wrapper {
+            width : 100%;
         }
     }
 </style>

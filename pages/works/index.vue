@@ -76,6 +76,11 @@ export default {
                     complete : function() {
                         _this.$refs.works_items.$data.parentAnimationCompleted = true;
                     }
+              })
+            .add({
+                    targets : ".copyright_wrapper",
+                    easing : "easeInOutSine",
+                    opacity : [0 ,1],
               });
         }
     }
@@ -114,6 +119,8 @@ export default {
         align-items: center;
     }
 }
-</style>
 
+
+
+</style>
 

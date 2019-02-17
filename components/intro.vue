@@ -12,6 +12,7 @@
       <div class="intro_container_social">
           <a href="https://github.com/marouanesh" class="default_link" target="_blank"><font-awesome-icon   :icon="['fab','github']"/></a>
           <a href="https://www.facebook.com/Marwan.Esaaouira" class="default_link" target="_blank"><font-awesome-icon  :icon="['fab','facebook']"/></a>
+          <a href="https://www.linkedin.com/in/marouane-sh-256797133/" class="default_link" target="_blank"><font-awesome-icon  :icon="['fab','linkedin']"/></a>
       </div>
        <div class="lazyloading">
           <img src="svg/bg.svg" alt="">
@@ -90,14 +91,15 @@ export default {
         .add( {
           targets : ".test",
           easeInOutSine: 'easeOutElastic',
-          translateX : "450px",
-          scale : 0.2,
-          translateY : "190px",
+          translateX  : (window.innerWidth > 990) ? "450px" : "152px",
+          scale :  (window.innerWidth > 990) ? 0.2 : 0.1,
+          translateY :  (window.innerWidth > 990) ? "190px" : "300px",
           backgroundColor : "#ff174e",
         })
         .add(this.animate_strok(".intro-elem .name_elem path"))
         .add({
           targets : ".intro-elem .name_elem",
+          scale : (window.innerWidth > 990) ? 1 : 0.7,
           translateY : -20,
           opacity: [
               { value: 1, easing: 'easeInOutSine' }
@@ -110,7 +112,9 @@ export default {
           strokeWidth: 0,
           opacity : 1,
           translateY: [-100,0],
+          translateX:  (window.innerWidth > 990) ? 0 : "27px",
           easing: "easeOutExpo",
+          scale :  (window.innerWidth > 990) ? 1 : 0.7,
           duration: 1400,
           delay: function(el, i) {
             return 30 * i;
@@ -225,7 +229,7 @@ export default {
     },
     animate_strok(target) {
        let _this = this;
-      return {
+       return {
           targets: target,
           strokeDashoffset: [_this.$anime.setDashoffset, 5],
           easing: 'easeInOutSine',
@@ -335,6 +339,11 @@ export default {
       display: block;
           font-size: 18px;
     }
+   @media only screen and (max-width: 900px) {
+       font-size: 30px;
+       line-height: 1.4;
+
+    }
 }
 
 
@@ -378,5 +387,14 @@ export default {
     to {transform: translateY(-60px); opacity: 1}
 }
 
+</style>
+
+<style>
+
+@media only screen and (max-width: 990px) {
+  #app-wrapper {
+    /* transform: scale(0.7) */
+  }
+}
 
 </style>

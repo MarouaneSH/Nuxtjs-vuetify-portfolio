@@ -189,5 +189,11 @@ export default {
         transform : rotateY(360deg)
     }
 }
+
+.toggle_works {
+    display: none;
+}
+
+
 </style>
 

@@ -9,7 +9,7 @@
             </nuxt-link>
              
           </div>
-          <v-layout row>
+          <v-layout row class="row_home_wrapper">
               <v-flex x6>
                   <app-intro ref="intro" @onAnimationFinish="animateHomePage" />
               </v-flex>
@@ -17,7 +17,7 @@
                   <div class="home_content_nav">
                       <nuxt-link to="/about" class="default_link"> <span>About</span> </nuxt-link> 
                       <nuxt-link to="/works" class="default_link"><span>Works</span> </nuxt-link> 
-                        <nuxt-link to="/about" class="default_link"> <span>Skills</span> </nuxt-link> 
+                        <nuxt-link to="/skills" class="default_link"> <span>Skills</span> </nuxt-link> 
                   </div>
 
                   <div class="home_content_contact ">
@@ -132,6 +132,7 @@ export default {
         position: absolute;
         left: 0;
         right: 0;
+        z-index: -1;
         opacity: 0;
         bottom: 40px;
         margin: auto;
@@ -212,6 +213,22 @@ export default {
 /* .slide-fade-leave-active below version 2.1.8 */ {
   transform: translateX(10px);
   opacity: 0;
+}
+
+@media only screen and (max-width: 990px) {
+  .row_home_wrapper {
+    flex-direction: column-reverse !important;
+  }
+  .home_content_right {
+    align-items: center;
+  }
+  .home_content_contact {
+    align-self: center;
+    margin-top: 20px;
+  }
+  .intro_container {
+    justify-content: flex-start;
+  }
 }
 
 </style>

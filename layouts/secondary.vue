@@ -1,4 +1,5 @@
 <template>
+  <div class="app_wrapper">
     <v-container class="works_container">
         <div class="works_container_left_sidebar">
                 <nuxt-link to="/" >
@@ -11,37 +12,54 @@
                     <button class="btn_contact pulse"><font-awesome-icon icon="envelope"/></button>
                     <span>CONTACT</span>
                 </nuxt-link>
+                <div class="toggle_works">
+                    <font-awesome-icon @click="collpaseRightNavbar = !collpaseRightNavbar"  icon="grip-lines"/>
+                </div>
         </div>
         <nuxt />
-        <div class="works_container_right_sidebar">
-            <nuxt-link to="/about" class="nav_link default_link" v-if="currentRoute != 'about' && currentRoute != 'skills'">ABOUT</nuxt-link>
+        <div class="works_container_right_sidebar" :class="{'collapse_right_nav' : collpaseRightNavbar}">
+            <div class="right_sidebar_close">
+                <font-awesome-icon @click="collpaseRightNavbar = !collpaseRightNavbar"  icon="times"/>
+            </div>
+            <nuxt-link to="/about" class="nav_link default_link" v-if='!["about","skills","contact"].includes(currentRoute)'>ABOUT</nuxt-link>
             <nuxt-link to="/works" class="nav_link default_link" v-if="currentRoute != 'works'">Works</nuxt-link>
             <div class="social_icons">
-                <font-awesome-icon   :icon="['fab','github']"/>
-                <font-awesome-icon  :icon="['fab','facebook']"/>
-                <font-awesome-icon  :icon="['fab','linkedin']"/>
+                <a href="https://github.com/marouanesh" class="default_link" target="_blank"><font-awesome-icon :icon="['fab','github']"/></a>
+                <a href="https://www.facebook.com/Marwan.Esaaouira" class="default_link" target="_blank"><font-awesome-icon  :icon="['fab','facebook']"/></a>
+                <a href="https://www.linkedin.com/in/marouane-sh-256797133/" class="default_link" target="_blank"><font-awesome-icon  :icon="['fab','linkedin']"/></a>
             </div>
-            <nuxt-link to="/skills" class="nav_link default_link">SKILLS</nuxt-link>
+            <nuxt-link to="/skills" class="nav_link default_link" v-if='currentRoute != "skills"'>SKILLS</nuxt-link>
+             <nuxt-link to="/about" class="nav_link default_link" v-else>ABOUT</nuxt-link>
         </div>
     </v-container>
+    <app-footer></app-footer>
+  </div>
 </template>
 
 <script>
+  import appFooter from "../components/footer";
   export default {
     mounted() {
         // Change background IMAGE
         if(!this.$store.getters.backgroundStatus) {
             this.$store.commit('changeBgImage',"bg1.svg");
         }
+        if(window.innerWidth < 990) {
+            this.collpaseRightNavbar = true;
+        }
     },
     data() {
       return {
+          collpaseRightNavbar : false,
       }
     },
     computed : {
         currentRoute() {
             return this.$nuxt.$route.name;
-        }
+        },
+    },
+    components : {
+        appFooter
     }
   }
 </script>
@@ -138,7 +156,7 @@
                     margin-top: 10px;
                 }
             } 
-            a{
+            .nav_link{
                 font-weight: bold;
                 font-size: 15px;
                 position: relative;
@@ -146,7 +164,7 @@
                     content: "";
                     position: absolute;
                     background: #ff0047;
-                    height: 7px;
+                    height: 4px;
                     bottom: 4px;
                     left: 2px;
                     width: 51%;
@@ -156,4 +174,77 @@
          }
     }
 
+    .right_sidebar_close {
+        display: none;
+    }
+
+</style>
+
+
+<style lang="scss">
+
+@media only screen and (max-width: 990px) {
+  .works_container {
+      display: flex;
+      flex-direction: column;
+  }
+  .works_container_left_sidebar {
+    position: unset;
+    height: auto;
+    padding-top: 0;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    z-index: 2;
+    .toggle_works {
+        display: block;
+        svg {
+             font-size: 29px;
+        }
+       
+    }
+  }
+
+  .works_container_right_sidebar{
+      background: #063dc5;
+    z-index: 3;
+      transition: all 2s ease-in;
+  }
+  .collapse_right_nav {
+        right: -50vh;
+        display: none;
+    }
+    .right_sidebar_close {
+        position: absolute;
+        left: 10px;
+        display: block;
+       
+        svg {
+            font-size: 22px;
+        }
+    }
+    .works_container_content{width: 100%;}
+    .works_items {
+        .works_items_box {
+            width: 100%;
+            .works_overlay_details_technologies img {
+                width: 25px !important;
+            }
+            h4 {
+               font-size: 11px;
+            }
+            p {
+                font-size: 10px;
+            }
+        }
+    }
+    .single_works_content {
+        flex-direction: column-reverse;
+        .single_works_content_details {
+            width : 94% !important;
+            margin : 0 auto !important;
+        }
+    }
+ 
+}
 </style>

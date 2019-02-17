@@ -125,4 +125,16 @@ export default {
             }
         }
     }
+
+    @media only screen and (max-width: 990px) {
+        .about_container {
+            width : 100%;
+        }
+        .works_container {
+            margin-top: 0;
+        }
+        .lamp_svg {
+            z-index: -1;
+        }
+    }
 </style>

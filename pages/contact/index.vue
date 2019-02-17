@@ -178,4 +178,15 @@ export default {
         background: #78e8a7;
     }
    
+    @media only screen and (max-width: 990px) {
+        .contact_container {
+            width : 100%;
+        }
+        .lamp_svg {
+            z-index: -1;
+        }
+        .contact_container_content_desc {
+            padding : 10px 20px;
+        }
+    }
 </style>
