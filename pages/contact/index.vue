@@ -8,7 +8,7 @@
                 <div class="circle "></div>
                 <div class="circle "></div>
             </div>
-            <div class="contact_container_content_desc">
+            <v-form ref="form" class="contact_container_content_desc">
                  <h2>GET IN TOUCH</h2>
                  <div class="contact_status"> <div class="green_pulse pulse"></div> Available for full-time job</div>
                  <v-layout row wrap class="mt-5">
@@ -17,6 +17,7 @@
                                 dark
                                 class="primary_input"
                                 label="Full name"
+                                :rules="[]"
                                 outline
                             ></v-text-field>
                             <v-text-field
@@ -42,7 +43,7 @@
                         </v-btn>
                      </div>
                  </v-layout>
-            </div>
+            </v-form>
         </div>
     </div>
 </template>
