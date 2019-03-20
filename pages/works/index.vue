@@ -1,5 +1,5 @@
 <template>
-    <div class="works_container_content" :class="{animationComplete :animation_completed } ">
+    <div class="works_container_content animationComplete">
         <div class="works_page_wrapper">
             <h1>WORKS</h1>
             <p class="quote">❝ Behind every success is hard work ❝</p>
@@ -32,11 +32,13 @@ export default {
         } 
     },
     mounted(){
-         if(!this.animation_completed) {
-             this.firstTimeAnimation();
-         } else {
-            this.$refs.works_items.$data.parentAnimationCompleted = true;
-         }
+        //  if(!this.animation_completed) {
+        //      this.firstTimeAnimation();
+        //  } else {
+           
+        //  }
+
+         this.$refs.works_items.$data.parentAnimationCompleted = true;
     },
     methods : {
         firstTimeAnimation() {
@@ -92,6 +94,7 @@ export default {
     display: none;
      flex-direction: column;
      align-items: center;
+     width: 100%;
 }
 
 .panel_elem {
