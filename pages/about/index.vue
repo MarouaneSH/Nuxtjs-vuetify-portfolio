@@ -9,10 +9,99 @@
                 <div class="circle "></div>
             </div>
             <div class="about_container_content_desc">
-                <strong>Hi, I'm Marouane Souah</strong> 
-                <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Why do we use it? It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-                </p>
+                  <!-- <strong>Hi, I'm Marouane Souah</strong>  -->
+                <div class="about_container_content_desc_timeline">
+                    <div class="about_container_content_desc_timeline_about">
+                        <h5>ABOUT ME</h5>
+                      
+                        <p>
+                            <strong>Hi, I'm Marouane Souah.</strong> A full stack web developer & mobile app developer based in Essaouira, Morocco . <br>
+                            My skills are broad: from ux to design, front end to back end development. I enjoy each aspect, and love building web apps & mobile apps from start to finish, for clients all over the world.
+                            <br> <br>
+                            I'm available for remote work, if you would like to build something together, <nuxt-link to="/contact">get in touch</nuxt-link> ?
+                            <br><br>
+                            EMAIL : marouanesouah@gmail.com
+                        </p>
+                    </div>
+                    <div class="about_container_content_desc_timeline_experiences">
+                         <h5>EXPERIENCES</h5>
+                         <v-timeline
+                                align-top
+                                dense
+                                px-4
+                            >
+                                <v-timeline-item
+                                color="#00a48f"
+                                small
+                                >
+                                    <v-layout  >
+                                        <v-avatar>
+                                                <v-img
+                                                src="/img/companies/logo_impax.png"
+                                                ></v-img>
+                                        </v-avatar>
+                                        <div class="pl-3 text-xs-left">
+                                            <div><strong>IMPAX-TOURS</strong> - <span class="subheading_location"> <font-awesome-icon :icon="['fa','map-marker-alt']"/>Aachen, Germany </span></div>
+                                            <div class="subheadline_occupation"><span><font-awesome-icon :icon="['fa','home']"/> Remotely</span></div>
+                                            <div class="subheadline_occupation">Full stack developer - <span>DEC 2018 - MAR 2019</span></div>
+                                        </div>
+                                    </v-layout>
+                                </v-timeline-item>
+                                <v-timeline-item
+                                color="#6f00ff"
+                                small
+                                >
+                                    <v-layout  >
+                                        <v-avatar>
+                                                <v-img
+                                                src="/img/companies/logo_stage.png"
+                                                ></v-img>
+                                        </v-avatar>
+                                        <div class="pl-3 text-xs-left">
+                                            <div><strong>STAGEMAROC</strong> - <span class="subheading_location"> <font-awesome-icon :icon="['fa','map-marker-alt']"/>  Casablanca, Morocco </span></div>
+                                             <div class="subheadline_occupation"><span><font-awesome-icon :icon="['fa','home']"/> Remotely</span></div>
+                                            <div class="subheadline_occupation">Full stack developer - <span>OCT 2018 - NOV 2018</span></div>
+                                        </div>
+                                    </v-layout>
+                            </v-timeline-item>
+                            <v-timeline-item
+                                color="#e98a82"
+                                small
+                                >
+                                    <v-layout  >
+                                        <v-avatar>
+                                                <v-img
+                                                src="/img/companies/logo_wklni.png"
+                                                ></v-img>
+                                        </v-avatar>
+                                        <div class="pl-3 text-xs-left">
+                                            <div><strong>WKLNI</strong> - <span class="subheading_location"> <font-awesome-icon :icon="['fa','map-marker-alt']"/>  Riyadh, Saudi Arabia </span></div>
+                                             <div class="subheadline_occupation"><span><font-awesome-icon :icon="['fa','home']"/> Remotely</span></div>
+                                            <div class="subheadline_occupation">Full stack developer - <span>JUN  2018 - SEPT 2018</span></div>
+                                        </div>
+                                    </v-layout>
+                            </v-timeline-item>
+                            <v-timeline-item
+                                color="red"
+                                small
+                                >
+                                    <v-layout  >
+                                        <v-avatar>
+                                                <v-img
+                                                src="/img/companies/logo_grafimage.jpg"
+                                                ></v-img>
+                                        </v-avatar>
+                                        <div class="pl-3 text-xs-left">
+                                            <div><strong>Grafimage</strong> - <span class="subheading_location"> <font-awesome-icon :icon="['fa','map-marker-alt']"/>  Agadir, Morocco </span></div>
+                                             <div class="subheadline_occupation"><span><font-awesome-icon :icon="['fa','building']"/> In office</span></div>
+                                            <div class="subheadline_occupation">Internship Frontend Developer - <span>MAR  2018 - MAY 2018</span></div>
+                                        </div>
+                                    </v-layout>
+                            </v-timeline-item>
+                            
+                        </v-timeline>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -74,6 +163,7 @@ export default {
 
 <style scoped lang="scss">
     .about_container{
+        padding: 0 20px;
         width: calc(100% - 240px);
         margin: 0 auto;
         text-align: center;
@@ -108,11 +198,87 @@ export default {
                     max-width: 100%;
                 }
             }
+            &_desc_timeline {
+                display: flex;
+            }
             p {
                 text-align: center;
-                margin-top: 30px;
+                margin-top: 10px;
                 font-weight: 200;
                 line-height: 25px;
+                   text-align: justify;
+                   a {
+                       color : #ff0047;
+                       font-weight: bold;
+                       text-transform: uppercase;
+                   }
+            }
+            &_desc_timeline {
+                &_experiences {
+                    align-self: flex-start;
+                    width: 50%;
+                    h5 {
+                        text-align: left;
+                        margin-top: 50px;
+                        margin-bottom: 21px;
+                        position: relative;
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            background: #ff0047;
+                            height: 3px;
+                            bottom: 1px;
+                            left: 2px;
+                            width: 20px;
+                            z-index: -1;
+                        }
+                    }
+                }
+                &_about {
+                    width: 50%;
+                    padding-right: 25px;
+                    text-align: left;
+                    h5 {
+                        text-align: left;
+                        margin-top: 50px;
+                        margin-bottom: 21px;
+                         position: relative;
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            background: #ff0047;
+                            height: 3px;
+                            bottom: 1px;
+                            left: 0;
+                            width: 20px;
+                            z-index: -1;
+                        }
+                    }
+                    p {
+                        font-weight: bold;
+                    }
+                }
+            }
+            .v-timeline {
+                &::before {
+                    background: rgba(255, 255, 255, 0.32);
+                }
+            }
+            .theme--light.v-timeline:before {
+                background: rgba(255, 255, 255, 0.32);
+            }
+            .subheading_location {
+                font-size: 11px; 
+                svg {
+                    margin-right: 4px;
+                }   
+            }
+            .subheadline_occupation {
+                font-size: 12px;
+                margin-top: 4px;
+                span {
+                    font-size: 10px;
+                }
             }
         }
     }

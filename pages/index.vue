@@ -164,14 +164,13 @@ export default {
         &::before {
           content: "";
           position: absolute;
+          background: linear-gradient(to top, #f33a68, rgba(255,23,78,0.27843));
           width: 50%;
-          height: 4px;
-          background: #f33a68;
-          bottom: 6px;
+          height: 12px;
+          position: absolute;
+          left: 0;
+          bottom: 3px;
           z-index: -1;
-          /* top: 0; */
-          margin: auto;
-          border-radius: 2px;
         }
       }
     }
