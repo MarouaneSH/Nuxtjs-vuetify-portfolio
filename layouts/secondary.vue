@@ -22,7 +22,7 @@
                 <font-awesome-icon @click="collpaseRightNavbar = !collpaseRightNavbar"  icon="times"/>
             </div>
             <nuxt-link to="/about" class="nav_link default_link" v-if='!["about","skills","contact"].includes(currentRoute)'>ABOUT</nuxt-link>
-            <nuxt-link to="/works" class="nav_link default_link" v-if="currentRoute != 'works'">Works</nuxt-link>
+            <nuxt-link to="/works" class="nav_link default_link" v-if="currentRoute != 'works' && currentRoute != 'works-id'">Works</nuxt-link>
             <div class="social_icons">
                 <a href="https://github.com/marouanesh" class="default_link" target="_blank"><font-awesome-icon :icon="['fab','github']"/></a>
                 <a href="https://www.facebook.com/Marwan.Esaaouira" class="default_link" target="_blank"><font-awesome-icon  :icon="['fab','facebook']"/></a>
@@ -68,6 +68,7 @@
     .works_container {
         color: white;
         margin-top: 50px;
+        max-width: 100% !important;
         &_content {
             width: calc(100% - 240px);
             margin: 0 auto;
@@ -163,11 +164,12 @@
                 &:before {
                     content: "";
                     position: absolute;
-                    background: #ff0047;
-                    height: 4px;
-                    bottom: 4px;
-                    left: 2px;
-                    width: 51%;
+                    background: linear-gradient(to top, #f33a68, rgba(255,23,78,0.27843));
+                    width: 50%;
+                    height: 12px;
+                    position: absolute;
+                    right: 0;
+                    bottom: 3px;
                     z-index: -1;
                 }
             }
@@ -183,6 +185,9 @@
 
 <style lang="scss">
 
+.toggle_works {
+    display: none;
+}
 @media only screen and (max-width: 990px) {
   .works_container {
       display: flex;

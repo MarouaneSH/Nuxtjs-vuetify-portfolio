@@ -123,7 +123,7 @@ export default {
         .add( {
           targets : ".test",
           scale : 20,
-          borderRadius: 0,
+          borderRadius:["100%",0] ,
           backgroundColor : ["#fff", "#fff"],
           easing: 'linear',
           complete : function() {

@@ -59,6 +59,12 @@ const technologies = {
         description : "Shopify E-commerce Platform",
         width_thumbnail : "35px",
     },
+    nova : {
+        name : "Nova",
+        url : "nova.png",
+        description : "Nova is a beautifully designed administration panel for Laravel. Carefully crafted by the creators of Laravel to make you the most productive developer in the galaxy",
+        width_thumbnail : "120px",
+    },
     
 }
 
@@ -77,6 +83,28 @@ export const works = [
         ]
     },
     {
+        id : "impax-com",
+        name : "IMPAX TOURS",
+        thumbnail : "impax.jpg",
+        short_desc : "Travel booking platform",
+        technologies : [
+            technologies.laravel,
+            technologies.vuejs,
+            technologies.vuetify,
+        ]
+    },
+    {
+        id : "genitax-ma",
+        name : "GENITAX",
+        short_desc : "Tax data management (SPA)",
+        thumbnail : "genitax-ma.jpg",
+        technologies : [
+            technologies.vuejs,
+            technologies.vuetify,
+            technologies.laravel,
+        ]
+    },
+    {
         id : "cryptpoz-web",
         name : "CRYPTOZ",
         short_desc : "Cryptocurrency landing page",
@@ -85,15 +113,6 @@ export const works = [
             technologies.vuejs,
             technologies.vuetify,
             technologies.nuxtjs,
-        ]
-    },
-    {
-        id : "pdf-web",
-        name : "PDF CREATOR",
-        short_desc : "PDF Creator landing page",
-        thumbnail : "pdf-web.jpg",
-        technologies : [
-            technologies.angular,
         ]
     },
     {
@@ -108,12 +127,32 @@ export const works = [
         ]
     },
     {
+        id : "grande-optique",
+        name : "Grande optique",
+        short_desc : "Optical inventory management (SPA)",
+        thumbnail : "grandeoptique.jpg",
+        technologies : [
+            technologies.laravel,
+            technologies.vuejs,
+            technologies.nova,
+        ]
+    },
+    {
         id : "cryptoz-app",
         name : "CRYPTOZ",
         short_desc : "Cryptocurrency mobile application",
         thumbnail : "cryptoz-app.png",
         technologies : [
             technologies.ionic,
+            technologies.angular,
+        ]
+    },
+    {
+        id : "pdf-web",
+        name : "PDF CREATOR",
+        short_desc : "PDF Creator landing page",
+        thumbnail : "pdf-web.jpg",
+        technologies : [
             technologies.angular,
         ]
     },
@@ -125,7 +164,8 @@ export const works = [
         technologies : [
             technologies.ionic,
             technologies.angular,
-        ]
+        ],
+
     },
     {
         id : "franchise-france",
@@ -156,6 +196,16 @@ export const works = [
             technologies.laravel,
             technologies.lumen,
             technologies.angular,
+        ]
+    },
+    {
+        id : "manolo",
+        name : "MANOLO",
+        short_desc : "Bluetooth thermal printer mobile app",
+        thumbnail : "manolo.png",
+        technologies : [
+            technologies.angular,
+            technologies.ionic,
         ]
     },
     {

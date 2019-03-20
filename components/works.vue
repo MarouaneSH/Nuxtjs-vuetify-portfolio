@@ -53,12 +53,23 @@ export default {
         isAllImagesLoaded() {
             if(!this.imageLoaded ) return false;
             if(this.imageLoaded.every((val) => val == "true")) {
-                setTimeout(()=> {
-                    this.loading = false;
-                }, 1200)
+                if(!this.animation_completed) {
+                     this.$store.commit('completeWorkAnimation'); 
+                     setTimeout(()=> {
+                         this.loading = false;
+                      }, 2500)
+                } else {
+                    setTimeout(()=> {
+                        this.loading = false;
+                    }, 1200)
+                }
+                
             }
             if(!this.loading) return true;
-        }
+        },
+        animation_completed(){
+            return this.$store.getters.workAnimationStatus;
+        } 
     }
 }
 </script>
@@ -66,10 +77,10 @@ export default {
 <style lang="scss">
 .app_works {
     background: none !important;
+    width: 100%;
 }
 
 .loading_box {
-    width: 400px !important;
     height: 200px;
     background: rgba(1, 81, 213, 0.77)  ;
     border-radius: 5px;
@@ -108,7 +119,7 @@ export default {
     svg {
         position: absolute;
         left: 0;
-         bottom: 5px;
+         bottom: 0;
     }
     &_details {
         position: absolute;
@@ -142,7 +153,7 @@ export default {
                 background: linear-gradient(to top, rgba(60, 62, 96, 0.62), rgba(245,114,144,0));
                 position: absolute;
                 z-index: 0;
-                bottom: 5px;
+                bottom: 0;
             }
             img {
                 padding: 4px;
@@ -155,13 +166,23 @@ export default {
 .works_items {
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
     justify-content: space-around;
     &_box {
         width: calc(50% - 30px);
         position: relative;
         margin-top: 20px;
+        height: 260px;
+       @media only screen and (min-width: 1400px) {
+            height: 300px;
+       }
+       @media only screen and (min-width: 1600px) {
+            height: 400px;
+       }
         img.works_thumbnail {
-            max-width: 100%;
+            width:100%;
+            height: 100%;
+            object-fit: cover;
         }
     }
 }
@@ -190,9 +211,7 @@ export default {
     }
 }
 
-.toggle_works {
-    display: none;
-}
+
 
 
 </style>
