@@ -164,7 +164,7 @@ export default {
         &::before {
           content: "";
           position: absolute;
-          background: linear-gradient(to top, #f33a68, rgba(255,23,78,0.27843));
+          background: linear-gradient(to top, #f33a68, rgba(255, 23, 78, 0.78));
           width: 50%;
           height: 12px;
           position: absolute;

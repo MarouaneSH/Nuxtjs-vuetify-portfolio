@@ -12,36 +12,69 @@
                  <h2>GET IN TOUCH</h2>
                  <div class="contact_status"> <div class="green_pulse pulse"></div> Available for full-time job</div>
                  <v-layout row wrap class="mt-5">
-                     <v-flex xs12> 
-                          <v-text-field
-                                dark
-                                class="primary_input"
-                                label="Full name"
-                                :rules="[]"
-                                outline
-                            ></v-text-field>
+                     <template v-if="success">
+                         <div class="message_action_wrapper">
+                             <h3>Thanks  for being awesome!</h3>
+                             <p>Your message has been successfully sent. I'll get back to you as soon as i can.</p>
+                             <nuxt-link to="/works" class="explore_works">Explore my works</nuxt-link>
+                         </div>
+                     </template>
+                     <template v-else-if="error">
+                         <div class="message_action_wrapper">
+                             <h3>Oops! something went wrong.</h3>
+                             <p>Please try to <a href="#" @click="resetForm()">re-submit the form.</a>  <br> If you'd rather get in touch with me via email <a href="mailto:marouanesouah@gmail.com">marouanesouah@gmail.com</a> or phone <a> +212 6 97 85 41 90</a> </p>
+                            
+                         </div>
+                     </template>
+                     <template v-else>
+                        <v-flex xs12> 
                             <v-text-field
-                                dark
-                                class="primary_input"
-                                label="Email"
-                                outline
-                            ></v-text-field>
-                            <v-textarea
-                                dark
-                                class="primary_input"
-                                label="Message"
-                                outline>
-                            </v-textarea>
-                     </v-flex>
-                     <div class="ml-auto mr-auto">
-                         <v-btn
-                            round
-                            color="primary"
-                            id="btn_secondary"
-                            >
-                            SEND MESSAGE
-                        </v-btn>
-                     </div>
+                                    dark
+                                    class="primary_input"
+                                    label="Full name"
+                                    v-model="form.name"
+                                    :rules="[v => !!v || 'Name is required!']"
+                                    outline
+                                ></v-text-field>
+                                <v-text-field
+                                    dark
+                                    class="primary_input"
+                                    label="Email"
+                                    v-model="form.email"
+                                    :rules="emailRules"
+                                    outline
+                                ></v-text-field>
+                                <v-textarea
+                                    dark
+                                    class="primary_input"
+                                    label="Message"
+                                    v-model="form.message"
+                                    :rules="messageRules"
+                                    outline>
+                                </v-textarea>
+                        </v-flex>
+                        <div class="ml-auto mr-auto">
+                            <v-btn
+                                v-if="!loading"
+                                round
+                                color="primary"
+                                @click="submit()"
+                                id="btn_secondary"
+                                >
+                                SEND MESSAGE
+                            </v-btn>
+                            <template v-else>
+                                <v-progress-circular
+                                :size="30"
+                                color="white"
+                                indeterminate
+                                ></v-progress-circular>
+                            </template>
+                        </div>
+                        <div class="form_buttom">
+                            <span> If you'd rather get in touch with me by email <a href="mailto:marouanesouah@gmail.col">marouanesouah@gmail.com</a> or phone <a href="#">+212 6 97 85 41 90</a> I'll happy to hear from you.</span>
+                        </div>
+                     </template>
                  </v-layout>
             </v-form>
         </div>
@@ -98,6 +131,51 @@ export default {
                 rotate: "100deg",
                 delay : 2000,
             })
+    },
+    data(){
+        return {
+            loading: false,
+            success: false,
+            error: false,
+            form : {
+                name : "mar",
+                email : "marouanesouah@gmail.com",
+                message : "holla",
+            },
+            emailRules: [
+                    (v) => !!v || 'E-mail is required',
+                    (v) => /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'E-mail must be valid'
+            ],
+            messageRules: [
+                (v) => !!v || 'Description is required',
+                (v) => v && v.length <= 3500 || 'Description must be less than 3500 characters'
+            ],
+        }
+    },
+    methods : {
+        submit(){
+            if(this.$refs.form.validate()) {
+                this.loading = true;
+
+                this.error = false;
+                this.false = true;
+
+                this.$axios.post('/v1/api/sendmail',this.form).then(()=> {
+                    this.success = true;
+                })
+                .catch((e) => {
+                    this.error = true;
+                })
+                .then(()=> {
+                    this.loading = false;
+                })
+            }
+        },
+        resetForm(){
+            this.loading = false;
+            this.error = false;
+            this.success = false;
+        }
     }
 }
 </script>
@@ -178,6 +256,50 @@ export default {
         margin-right: 12px;
         background: #78e8a7;
     }
+
+    .form_buttom {
+         width: 100%;
+         span {
+              a {
+                color: #78e8a7;
+                font-size: 10px;
+              }
+              margin-top: 15px;
+              margin-bottom: 30px;
+              display: block;
+             font-size: 10px;
+         }
+    }
+
+    .message_action_wrapper {
+        width: 100%;
+        text-align: center;
+        margin-bottom : 60px;
+        p {
+            margin : 0 !important;
+        }
+        a {
+            color: #78e8a7;
+            font-weight: bold;
+        }
+        .explore_works {
+            position: relative;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            &::before {
+                content: "";
+                position: absolute;
+                background: linear-gradient(to top, #f33a68, rgba(255, 23, 78, 1));
+                width: 50%;
+                height: 12px;
+                position: absolute;
+                right: 0;
+                bottom: 3px;
+                z-index: -1;
+            }
+        }
+    }
    
     @media only screen and (max-width: 990px) {
         .contact_container {
@@ -190,4 +312,9 @@ export default {
             padding : 10px 20px;
         }
     }
+</style>
+<style>
+.v-messages__message{
+    color : #ff7b9a;
+}
 </style>

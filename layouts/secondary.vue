@@ -162,15 +162,15 @@
                 font-size: 15px;
                 position: relative;
                 &:before {
-                    content: "";
-                    position: absolute;
-                    background: linear-gradient(to top, #f33a68, rgba(255,23,78,0.27843));
-                    width: 50%;
-                    height: 12px;
-                    position: absolute;
-                    right: 0;
-                    bottom: 3px;
-                    z-index: -1;
+                       content: "";
+                        position: absolute;
+                        background: linear-gradient(to top, #f33a68, rgb(232, 17, 68));
+                        width: 57%;
+                        height: 8px;
+                        position: absolute;
+                        right: 0;
+                        bottom: 3px;
+                        z-index: -1;
                 }
             }
          }
