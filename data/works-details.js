@@ -1,11 +1,14 @@
 export const works_details = [
    {
         id : "wklni-com",
-        description : "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Why do we use it? It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+        description : "<span>WKLNI</span> is a new startup based in Riyadh, Saudi Arabia. They wanted to create a new generation of freelancing platform with a new features. <br><br> The main objective of this platform is to allow freelancers to search for <span>missions / jobs</span> within a certain location on the <span>map</span>, and make it easier for clients to search for the best freelancers near them. <br> I was hired to create this project from scratch to finish, starting by desiging the <span>website</span> to desinging the <span>database</span>. In order to make this project a <span>Single Web Page Application</span> I used <span>Vuejs</span> as the main technology, and <span>Laravel</span> for creating the API's as well as some other tehchnologies such as <span>vue-i18</span> to support multi-languages, <span>Pusher</span> to create a Realtime notifications system and <span>Nexmo</span> API for SMS phone verification.",
         project_url : "https://laraxio.com",
         other_technologies : [
             "VueX", "Vue-i18"  ,"Laravel-Scout", "SPA", "JWT", "ElasticSearch" , "axios" ,"PayPal SDK" , "Google map SDK", "Laravel Voyager", "HighChart.js","PHP","JAVASCRIPT","MOMENT.JS", "CSS / SASS"
-        ]
+        ],
+        screenshots_count : 21,
+        videoID : "325959931",
+        hasVideo : true,
    },
    {
         id : "cryptpoz-web",
@@ -14,7 +17,7 @@ export const works_details = [
         other_technologies : ["Server side rendering","JavaScript","Sass"],
         screenshots_count : 4,
         hasVideo : true,
-        videoLink : "cryptpoz-web.mp4"
+        videoID : "325959315"
     }, 
     {
         id : "actiondevisprox",
@@ -25,7 +28,7 @@ export const works_details = [
         ],
         screenshots_count : 14,
         hasVideo: true,
-        videoLink : "actiondevisprox.mp4"
+        videoID : "325959596"
    },
    {
         id : "pdf-web",
@@ -36,7 +39,7 @@ export const works_details = [
         ],
         screenshots_count : 3,
         hasVideo : true,
-        videoLink : "pdf-creator.mp4"
+        videoID : "325953710"
     },
     {
         id : "franchise-france",
@@ -47,7 +50,7 @@ export const works_details = [
         ],
         screenshots_count : 12,
         hasVideo : true,
-        videoLink: "franchise.mp4"
+        videoID: "325959000"
     },
     {
         id : "actiontravaux",
@@ -58,7 +61,7 @@ export const works_details = [
         ],
         screenshots_count : 3,
         hasVideo: true,
-        videoLink : "actiondevisprox.mp4"
+        videoID : "325959596"
     },
     {
         id : "salembrothers",
@@ -112,7 +115,7 @@ export const works_details = [
             price : 19,
         },
         hasVideo : true,
-        videoLink : "pdf-creator.mp4"
+        videoID : "325953710"
     },
     
     {
@@ -132,14 +135,14 @@ export const works_details = [
             price : 19,
         },
         hasVideo : true,
-        videoLink : "cryptpoz-web.mp4"
+        videoID : "325959315"
     },
     {
         id : "impax-com",
-        description : "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Why do we use it? It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+        description : "<span>Impax-tours</span> is a startup based in Aachen, Germany offering an <span>online platform</span> for surf camps and other outdoor sports such as ski & snowboard, yoga and outdoor adventures. <br> <br> They brought me to support their development team on optimizing and implementing <span>new features</span> to the platform. More often the tasks that was assigned to me are on the front-end side, such as implementing lazy loading, SSR, changing the website landing pages, implement filtering functionalities, creating affiliate system as well as some other tasks on the back-end. <br>The main technologies we've been used in this project are <span>Vuejs</span>,<span>Vuetify</span> and <span>Laravel</span>.",
         project_url : "https://impax-tours.com",
         other_technologies : [
-            "VueX","axios" ,"Facebook Pixel" , "Vuetify", 
+            "VueX","Axios" , "Google Hotel API", "Google Map","Lazy loading", "Facebook Pixel" , "Vuetify", 
         ],
         screenshots_count : 8,
    },
@@ -152,7 +155,7 @@ export const works_details = [
         ],
         screenshots_count : 13,
         hasVideo: true,
-        videoLink : "genitax.mp4"
+        videoID : "325958786"
     },
     {
         id : "grande-optique",
@@ -160,14 +163,14 @@ export const works_details = [
         other_technologies : ["Laravel","JavaScript","VueJS","Laravel Nova"],
         screenshots_count : 9,
         hasVideo : true,
-        videoLink : "grande-optique.mp4"
+        videoID : "325956713"
     },
     {
         id : "manolo",
-        description : "<span>Grande optique </span> is an optical eyewear store located in different cities based in Morocco, they want to control their stocks through an online web application.<br><br> I was responsible for developing the admistration part for their stocks inventory. It was my first time using <span>Laravel Nova</span> which is a beautifully designed administration panel created by <span>Laravel Team</span>.",
-        other_technologies : ["Laravel","JavaScript","VueJS","Laravel Nova"],
+        description : "<span>Manolo</span> is an ionic mobile application that I've created it for a delivery company in Morocco. <br> <br> The objective of this application is to allow employees to <span>track</span> and <span>print</span> orders using a <span>thermal printer</span> connected with their phones by <span>bleuthooth</span> technology. I've used  <span>Ionic</span>, <span>Zebra API</span>  and <span>Laravel</span> in order to build this application.",
+        other_technologies : ["Zebra API","Cordova Printer"],
         screenshots_count : 6,
         hasVideo : true,
-        videoLink : "manolo.mp4"
+        videoID : "325956311"
     },
 ]

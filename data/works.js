@@ -178,13 +178,13 @@ export const works = [
         ]
     },
     {
-        id : "actiontravaux",
-        name : "ACTIONTRAVAUX.ORG",
-        short_desc : "Leads Generation website",
-        thumbnail : "actiontravaux.jpg",
+        id : "manolo",
+        name : "MANOLO",
+        short_desc : "Bluetooth thermal printer mobile app",
+        thumbnail : "manolo.png",
         technologies : [
-            technologies.laravel,
-            technologies.jquery,
+            technologies.angular,
+            technologies.ionic,
         ]
     },
     {
@@ -198,14 +198,15 @@ export const works = [
             technologies.angular,
         ]
     },
+
     {
-        id : "manolo",
-        name : "MANOLO",
-        short_desc : "Bluetooth thermal printer mobile app",
-        thumbnail : "manolo.png",
+        id : "actiontravaux",
+        name : "ACTIONTRAVAUX.ORG",
+        short_desc : "Leads Generation website",
+        thumbnail : "actiontravaux.jpg",
         technologies : [
-            technologies.angular,
-            technologies.ionic,
+            technologies.laravel,
+            technologies.jquery,
         ]
     },
     {

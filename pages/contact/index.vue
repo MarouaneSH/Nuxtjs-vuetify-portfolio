@@ -138,9 +138,9 @@ export default {
             success: false,
             error: false,
             form : {
-                name : "mar",
-                email : "marouanesouah@gmail.com",
-                message : "holla",
+                name : null,
+                email : null,
+                message : null,
             },
             emailRules: [
                     (v) => !!v || 'E-mail is required',
@@ -186,6 +186,7 @@ export default {
         margin: 0 auto;
         text-align: center;
         display: flex;
+        padding: 30px;
         flex-direction: column;
         align-items: center;
         &_content {

@@ -46,7 +46,7 @@
                  <h5>Things I want to learn</h5>
                  <ul class="pending">
                    <li> Flutter </li>
-                   <li> E2E unit testing </li>
+                   <li> E2E & unit testing </li>
                 </ul>
             </v-flex>
         </v-layout>
