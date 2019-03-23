@@ -57,7 +57,7 @@ export default {
                      this.$store.commit('completeWorkAnimation'); 
                      setTimeout(()=> {
                          this.loading = false;
-                      }, 2500)
+                      }, 3000)
                 } else {
                     setTimeout(()=> {
                         this.loading = false;

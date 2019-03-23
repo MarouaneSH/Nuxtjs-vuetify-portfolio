@@ -1,9 +1,9 @@
 <template>
     <div class="works_container_content">
-        <div class="works_back" @click="$router.go(-1)">
+        <nuxt-link class="works_back" to="/works">
               <font-awesome-icon   :icon="['fas','arrow-up']"/>
               <span>back to works</span>
-        </div>
+        </nuxt-link>
         <v-app id="app_single_works" >
             <div class="single_works" v-if="loading">
                 <div class="loding_single_works">
@@ -50,7 +50,7 @@
                             </div>
                             <div class="item_content" v-if="work.details.project_url">
                                 <h3 class="item_content_heading">Project URL</h3>
-                                <a href="#" target="_blank" class="item_content_val">{{work.details.project_url}} </a>
+                                <a :href="work.details.project_url" target="_blank" class="item_content_val">{{work.details.project_url}} </a>
                             </div>
                             <template  v-if="work.details.isApp">
                                 <div class="item_content">
@@ -116,10 +116,15 @@
                
                <div class="video_popup" v-if="work && showVideo">
                   
-                   <font-awesome-icon class="close-btn" @click="showVideo = false"  icon="times"/>
-                   <video width="700" autoplay controls>
-                        <source   :src="`/img/works/videos/${work.details.videoLink}`"  type="video/mp4"> 
-                    </video> 
+                    <font-awesome-icon class="close-btn" @click="showVideo = false"  icon="times"/>
+                    <div class="loading_video">
+                        <v-progress-circular
+                        :size="30"
+                        color="white"
+                        indeterminate
+                        ></v-progress-circular>
+                    </div>
+                    <iframe :src="`https://player.vimeo.com/video/${work.details.videoID}?autoplay=1&loop=1`" allow="autoplay" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                </div>
             </transition>
         </v-app>
@@ -179,6 +184,8 @@ export default {
     align-items: center;
     flex-direction: column;
     padding-bottom: 20px;
+    text-decoration: none;
+    color: white;
     cursor: pointer;
     svg {
         font-size: 30px;
@@ -409,6 +416,7 @@ export default {
 
 .video_popup {
     position: fixed;
+    z-index: 2;
     top: 0;
     background: #03214cb8;
     height: 100%;
@@ -532,6 +540,19 @@ export default {
     box-shadow: inset 0px 0px 12px 5px rgba(255, 255, 255, .8);
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
+}
+
+.loading_video {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left : 0;
+    right: 0;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: -1;
 }
 
 @-webkit-keyframes pulsejg1 {
