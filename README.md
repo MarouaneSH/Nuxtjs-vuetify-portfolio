@@ -1,22 +1,10 @@
-# portfolio
+## Personal portfolio built using Vue.js, Nuxt.js, Anime.js and Vuetify
+Demo URL : https://marouane.me/
+## Screenshots : 
+![Screenshot](https://raw.githubusercontent.com/marouanesh/Vuejs-NuxtJs-AnimeJs-Vuetify-Porfolio/master/static/preview-1.png)
 
-> My personal portfolio
+![Screenshot](https://raw.githubusercontent.com/marouanesh/Vuejs-NuxtJs-AnimeJs-Vuetify-Porfolio/master/static/preview-2.png)
 
-## Build Setup
+![Screenshot](https://raw.githubusercontent.com/marouanesh/Vuejs-NuxtJs-AnimeJs-Vuetify-Porfolio/master/static/preview-3.png)
 
-``` bash
-# install dependencies
-$ npm install
 
-# serve with hot reload at localhost:3000
-$ npm run dev
-
-# build for production and launch server
-$ npm run build
-$ npm start
-
-# generate static project
-$ npm run generate
-```
-
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
