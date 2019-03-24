@@ -18,6 +18,7 @@
                             <strong>Hi, I'm Marouane Souah.</strong> A full stack web developer & mobile app developer based in Essaouira, Morocco . <br>
                             My skills are broad, from ux to design, front-end to back-end development. I enjoy each aspect, and love building web apps & mobile apps from start to finish, for clients all over the world.
                             <br> <br>
+                            <a href="/CV-v2019.pdf">View my resume</a> <br></br>
                             I'm available for remote work, if you would like to build something together, <nuxt-link to="/contact">get in touch</nuxt-link> ?
                             <br><br>
                             EMAIL : marouanesouah@gmail.com <br>
@@ -209,7 +210,7 @@ export default {
                 line-height: 25px;
                    text-align: justify;
                    a {
-                       color : #ff0047;
+                        color: #78e8a7;
                        font-weight: bold;
                        text-transform: uppercase;
                    }
@@ -302,6 +303,15 @@ export default {
         }
         .lamp_svg {
             z-index: -1;
+        }
+        .about_container_content_desc_timeline {
+            flex-direction: column;
+        }
+        .about_container_content_desc_timeline_about {
+            width: 100%;
+        }
+        .about_container_content_desc_timeline_experiences {
+            width: 100%;
         }
     }
 </style>

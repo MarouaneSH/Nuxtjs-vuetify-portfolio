@@ -193,6 +193,15 @@
       display: flex;
       flex-direction: column;
   }
+  .home_content_nav {
+      text-align: center !important;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+  }
+  .intro-completed .intro_container_social {
+      margin-bottom: auto;
+  }
   .works_container_left_sidebar {
     position: unset;
     height: auto;
