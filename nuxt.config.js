@@ -6,6 +6,7 @@ module.exports = {
   /*
   ** Headers of the page
   */
+
   head: {
     title: "Marouane Souah | Full stack web and mobile developer",
     meta: [
@@ -22,7 +23,7 @@ module.exports = {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#fff' },
+ loading: {color : '#ffff', height: "4px"},
 
   /*
   ** Global CSS
@@ -39,7 +40,8 @@ module.exports = {
   plugins: [
     '@/plugins/vuetify',
     '@/plugins/anime',
-    '~/plugins/fontawesome.js'
+    '~/plugins/fontawesome.js',
+    { src: '~plugins/ga.js', ssr: false }
  
   ],
 

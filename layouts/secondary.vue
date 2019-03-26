@@ -26,7 +26,7 @@
             <div class="social_icons">
                 <a href="https://github.com/marouanesh" class="default_link" target="_blank"><font-awesome-icon :icon="['fab','github']"/></a>
                 <a href="https://www.facebook.com/Marwan.Esaaouira" class="default_link" target="_blank"><font-awesome-icon  :icon="['fab','facebook']"/></a>
-                <a href="https://www.linkedin.com/in/marouane-sh-256797133/" class="default_link" target="_blank"><font-awesome-icon  :icon="['fab','linkedin']"/></a>
+                <a href="https://www.linkedin.com/in/marouane-souah-256797133/" class="default_link" target="_blank"><font-awesome-icon  :icon="['fab','linkedin']"/></a>
             </div>
             <nuxt-link to="/skills" class="nav_link default_link" v-if='currentRoute != "skills"'>SKILLS</nuxt-link>
              <nuxt-link to="/about" class="nav_link default_link" v-else>ABOUT</nuxt-link>
@@ -68,7 +68,7 @@
     .works_container {
         color: white;
         margin-top: 50px;
-        max-width: 100% !important;
+        max-width: 1200px !important;
         &_content {
             width: calc(100% - 240px);
             margin: 0 auto;

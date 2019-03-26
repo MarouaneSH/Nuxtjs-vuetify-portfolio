@@ -140,7 +140,7 @@ export const works = [
     {
         id : "cryptoz-app",
         name : "CRYPTOZ",
-        short_desc : "Cryptocurrency mobile application",
+        short_desc : "Cryptocurrency mobile app",
         thumbnail : "cryptoz-app.png",
         technologies : [
             technologies.ionic,
@@ -159,7 +159,7 @@ export const works = [
     {
         id : "pdf-creator-app",
         name : "PDF CREATOR",
-        short_desc : "DOCUMENTS SCANNER & IMAGE CONVERTER TO PDF",
+        short_desc : "DOCUMENTS SCANNER & IMAGE CONVERTER",
         thumbnail : "pdf-app.png",
         technologies : [
             technologies.ionic,

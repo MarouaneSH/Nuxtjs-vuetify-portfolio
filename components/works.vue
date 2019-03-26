@@ -116,10 +116,23 @@ export default {
     width: 100%;
     /* top: 0; */
     bottom: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    h4 {
+        margin-top: auto;
+    }
     svg {
         position: absolute;
         left: 0;
          bottom: 0;
+        @media  (min-width: 990px) and (max-width: 1025px) {
+                height: 60%;
+        }
+            // @media only screen and (max-width: 1280px) {
+            //         height: 7%;
+            // }
     }
     &_details {
         position: absolute;
@@ -173,12 +186,12 @@ export default {
         position: relative;
         margin-top: 20px;
         height: 260px;
-       @media only screen and (min-width: 1400px) {
-            height: 300px;
-       }
-       @media only screen and (min-width: 1600px) {
-            height: 400px;
-       }
+    //    @media only screen and (min-width: 1400px) {
+    //         height: 300px;
+    //    }
+    //    @media only screen and (min-width: 1600px) {
+    //         height: 400px;
+    //    }
         img.works_thumbnail {
             width:100%;
             height: 100%;

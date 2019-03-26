@@ -38,7 +38,7 @@
                  <ul>
                    <li> Git / Mercurial</li>
                    <li> Vagrant / Docker</li>
-                   <li>  Esastic search / Algolia </li>
+                   <li>  Elastic search / Algolia </li>
                    <li> Server side rendering</li>
                    <li>Illustrator</li>
                    <li> API Integration (Facebook, Google, Microsoft...)</li>

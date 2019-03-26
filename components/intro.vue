@@ -12,7 +12,7 @@
       <div class="intro_container_social">
           <a href="https://github.com/marouanesh" class="default_link" target="_blank"><font-awesome-icon   :icon="['fab','github']"/></a>
           <a href="https://www.facebook.com/Marwan.Esaaouira" class="default_link" target="_blank"><font-awesome-icon  :icon="['fab','facebook']"/></a>
-          <a href="https://www.linkedin.com/in/marouane-sh-256797133/" class="default_link" target="_blank"><font-awesome-icon  :icon="['fab','linkedin']"/></a>
+          <a href="https://www.linkedin.com/in/marouane-souah-256797133/" class="default_link" target="_blank"><font-awesome-icon  :icon="['fab','linkedin']"/></a>
       </div>
        <div class="lazyloading">
           <img src="svg/bg.svg" alt="">
@@ -122,7 +122,7 @@ export default {
         })
         .add( {
           targets : ".test",
-          scale : 20,
+          scale : 40,
           borderRadius:["100%",0] ,
           backgroundColor : ["#fff", "#fff"],
           easing: 'linear',
