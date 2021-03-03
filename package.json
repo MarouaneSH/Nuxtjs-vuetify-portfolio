@@ -30,7 +30,7 @@
     "coffeescript": "^2.3.2",
     "node-sass": "^4.10.0",
     "nodemon": "^1.11.0",
-    "pug": "^2.0.3",
+    "pug": "^3.0.1",
     "pug-plain-loader": "^1.0.0",
     "sass-loader": "^7.1.0",
     "stylus": "^0.54.5",
