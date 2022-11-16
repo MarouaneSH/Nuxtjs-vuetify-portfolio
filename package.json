@@ -20,7 +20,7 @@
     "@nuxtjs/axios": "^5.4.1",
     "animejs": "^2.2.0",
     "cross-env": "^5.2.0",
-    "nuxt": "^2.0.0",
+    "nuxt": "^2.15.8",
     "nuxt-fontawesome": "^0.3.0",
     "vue-animejs": "^1.0.2",
     "vuetify": "^1.2.4"
